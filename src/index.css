@@ -1,0 +1,35 @@
+@import "tailwindcss";
+
+:root {
+  /* Colors */
+  --primary: 0, 0, 0;
+  --secondary: 0, 188, 251;
+
+  /* Spacing */
+  --sidePadding: 20px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@theme {
+  --color-primary: rgb(var(--primary));
+  --color-secondary: rgb(var(--secondary));
+
+  --spacing-sidePadding: var(--sidePadding);
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgb(var(--primary));
+}
+
+/* For the scrollbar thumb (the draggable part) */
+::-webkit-scrollbar-thumb {
+  background: rgb(var(--secogit branch -M mainndary));
+  border-radius: 2px;
+}
