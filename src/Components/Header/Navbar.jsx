@@ -2,6 +2,9 @@ import { useRef, useEffect } from "react";
 import { Link } from "react-scroll";
 import { motion, AnimatePresence } from "framer-motion";
 
+// Components
+import SocialMedia from "../SocialMedia";
+
 const NavbarText = ({ children, to }) => {
   const handleNavClick = (section) => {
     window.history.pushState({}, "", `/${section}`);
@@ -92,9 +95,11 @@ export const MobileNavbar = ({ menuIsOpen, closeMenu }) => {
               ease: "easeInOut",
               duration: 0.4,
             }}
-            className="w-1/2 bg-primary/40 flex flex-col gap-y-5 backdrop-blur-md border-[1px] border-secondary/25 rounded-lg overflow-hidden absolute top-full right-sidePadding"
+            className="w-1/2 bg-primary/40 flex flex-col gap-y-5 backdrop-blur-md border-[1px] border-secondary/25 rounded-lg overflow-hidden fixed top-menuHeight right-sidePadding z-50"
           >
             <Navbar />
+
+            <SocialMedia className="pl-10" />
           </motion.nav>
         )}
       </AnimatePresence>

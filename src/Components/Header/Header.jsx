@@ -18,7 +18,7 @@ const Header = () => {
 
   return (
     <>
-      <header className="w-full h-16 bg-primary/40 backdrop-blur-md flex justify-between items-center px-sidePadding fixed">
+      <header className="w-full h-menuHeight bg-primary/40 backdrop-blur-md flex justify-between items-center px-sidePadding fixed top-0 z-50">
         <DesktopNavbar />
 
         {menuIsOpen ? (
@@ -30,9 +30,8 @@ const Header = () => {
             <MenuIcon className="text-secondary" />
           </IconContainer>
         )}
-
-        <MobileNavbar menuIsOpen={menuIsOpen} closeMenu={closeMenu} />
       </header>
+      <MobileNavbar menuIsOpen={menuIsOpen} closeMenu={closeMenu} />
     </>
   );
 };

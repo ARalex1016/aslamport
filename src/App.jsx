@@ -5,6 +5,7 @@ import { Background } from "./Components/Background";
 import Header from "./Components/Header/Header";
 import Hero from "./Components/Hero/Hero";
 import Skill from "./Components/Skill/Skill";
+import Project from "./Components/Project/Project";
 
 function App() {
   return (
@@ -16,9 +17,10 @@ function App() {
             element={
               <>
                 <Header />
+                <Hero />
                 <Background>
-                  <Hero />
                   <Skill />
+                  <Project />
                 </Background>
               </>
             }

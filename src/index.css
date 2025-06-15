@@ -4,9 +4,11 @@
   /* Colors */
   --primary: 0, 0, 0;
   --secondary: 0, 188, 251;
+  --gray: 21, 21, 21;
 
   /* Spacing */
   --sidePadding: 20px;
+  --menuHeight: 60px;
 }
 
 html {
@@ -16,8 +18,10 @@ html {
 @theme {
   --color-primary: rgb(var(--primary));
   --color-secondary: rgb(var(--secondary));
+  --color-gray: rgb(var(--gray));
 
   --spacing-sidePadding: var(--sidePadding);
+  --spacing-menuHeight: var(--menuHeight);
 }
 
 ::-webkit-scrollbar {
