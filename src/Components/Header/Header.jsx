@@ -18,7 +18,7 @@ const Header = () => {
 
   return (
     <>
-      <header className="w-full h-menuHeight bg-primary/40 backdrop-blur-md flex justify-between items-center px-sidePadding fixed top-0 z-50">
+      <header className="w-full h-menuHeight bg-primary/40 backdrop-blur-sm flex justify-between items-center px-sidePadding fixed top-0 z-50">
         <DesktopNavbar />
 
         {menuIsOpen ? (

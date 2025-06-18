@@ -26,13 +26,13 @@ const NavbarText = ({ children, to }) => {
 const Navbar = () => {
   return (
     <>
-      <NavbarText to="hero">Hero</NavbarText>
+      <NavbarText to="hero">Home</NavbarText>
 
       <NavbarText to="skills">Skills</NavbarText>
 
       <NavbarText to="projects">Project</NavbarText>
 
-      <NavbarText>Contact Us</NavbarText>
+      <NavbarText to="contact">Contact Us</NavbarText>
     </>
   );
 };
@@ -95,7 +95,7 @@ export const MobileNavbar = ({ menuIsOpen, closeMenu }) => {
               ease: "easeInOut",
               duration: 0.4,
             }}
-            className="w-1/2 bg-primary/40 flex flex-col gap-y-5 backdrop-blur-md border-[1px] border-secondary/25 rounded-lg overflow-hidden fixed top-menuHeight right-sidePadding z-50"
+            className="w-1/2 bg-primary/40 flex flex-col gap-y-5 backdrop-blur-sm border-[1px] border-secondary/25 rounded-lg overflow-hidden fixed top-menuHeight right-sidePadding z-50"
           >
             <Navbar />
 

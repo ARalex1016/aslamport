@@ -37,3 +37,24 @@ html {
   background: rgb(var(--secogit branch -M mainndary));
   border-radius: 2px;
 }
+
+/* Slider Indicator / Pagination Start */
+.custom-pagination .swiper-pagination-bullet {
+  background: #ddd;
+  width: 10px;
+  height: 10px;
+  border: 2px solid white;
+  border-radius: 50%;
+  opacity: 1;
+}
+
+.custom-pagination .swiper-pagination-bullet-active {
+  background: rgb(var(--secondary));
+  transform: scale(1.2);
+}
+/* Slider Indicator / Pagination End */
+
+body {
+  margin: 0;
+  background-color: rgb(var(--primary));
+}
