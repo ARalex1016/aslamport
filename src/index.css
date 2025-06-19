@@ -58,3 +58,7 @@ body {
   margin: 0;
   background-color: rgb(var(--primary));
 }
+
+.rounded-inherit {
+  border-radius: inherit;
+}

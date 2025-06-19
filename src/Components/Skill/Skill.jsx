@@ -46,14 +46,13 @@ const Slides = ({ skills }) => {
                   <CountUp
                     start={0}
                     end={skill.knowledgeLevel}
-                    duration={animationDuration}
+                    duration={animationDuration + index * 0.1}
                     delay={0}
                     useEasing={true}
                   />
                 )}
                 %
               </p>
-              {/* <p className="text-xs">{skill.knowledgeLevel}%</p> */}
             </div>
 
             {/* Progress Bar */}
@@ -70,7 +69,7 @@ const Slides = ({ skills }) => {
                 initial="initial"
                 animate={isInView ? "final" : "initial"}
                 transition={{
-                  duration: isInView ? animationDuration : 0,
+                  duration: isInView ? animationDuration + index * 0.1 : 0,
                   ease: "linear",
                 }}
                 className={`h-full bg-secondary shadow-xs shadow-secondary`}
@@ -107,9 +106,9 @@ const Slider = ({ slides }) => {
       {slides.map((slide, index) => (
         <SwiperSlide
           key={index}
-          className="flex justify-center items-center px-8"
+          className="flex justify-center items-center px-10"
         >
-          <div className="w-full flex flex-col rounded-md py-2">
+          <div className="w-full flex flex-col rounded-md">
             <h3 className="text-secondary/60 text-xl font-medium">
               {slide.category}
             </h3>
@@ -148,18 +147,17 @@ const Slider = ({ slides }) => {
   );
 };
 
-const Skill = forwardRef((prop, ref) => {
+const Skill = () => {
   return (
     <section
       id="skills"
-      ref={ref}
-      className="w-full text-white bg-gray rounded-2xl py-5"
+      className="w-full text-white bg-gray rounded-2xl flex flex-col gap-y-2 py-8"
     >
       <h2 className="text-2xl text-white text-center">Skills</h2>
 
       <Slider slides={skillsObj.skills} />
     </section>
   );
-});
+};
 
 export default Skill;
