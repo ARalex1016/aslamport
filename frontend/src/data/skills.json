@@ -1,0 +1,99 @@
+{
+  "skills": [
+    {
+      "category": "Front End",
+      "skills": [
+        {
+          "name": "HTML",
+          "icon": "https://img.icons8.com/color/48/html-5.png",
+          "knowledgeLevel": 80
+        },
+        {
+          "name": "CSS",
+          "icon": "https://img.icons8.com/color/48/css3.png",
+          "knowledgeLevel": 70
+        },
+        {
+          "name": "JavaScript",
+          "icon": "https://img.icons8.com/color/48/javascript.png",
+          "knowledgeLevel": 75
+        },
+        {
+          "name": "React.js",
+          "icon": "https://img.icons8.com/color/48/react-native.png",
+          "knowledgeLevel": 80
+        },
+        {
+          "name": "Tailwind CSS",
+          "icon": "https://icon.icepanel.io/Technology/svg/Tailwind-CSS.svg",
+          "knowledgeLevel": 70
+        },
+        {
+          "name": "Framer Motion",
+          "icon": "https://img.icons8.com/color/48/framer-motion.png",
+          "knowledgeLevel": 60
+        }
+      ]
+    },
+    {
+      "category": "Back End",
+      "skills": [
+        {
+          "name": "Node.js",
+          "icon": "https://img.icons8.com/color/48/nodejs.png",
+          "knowledgeLevel": 70
+        },
+        {
+          "name": "Express.js",
+          "icon": "https://img.icons8.com/color/48/express.png",
+          "knowledgeLevel": 75
+        },
+        {
+          "name": "MongoDB",
+          "icon": "https://img.icons8.com/color/48/mongodb.png",
+          "knowledgeLevel": 70
+        }
+      ]
+    },
+    {
+      "category": "Tools",
+      "skills": [
+        {
+          "name": "GitHub",
+          "icon": "https://img.icons8.com/color/48/github.png",
+          "knowledgeLevel": 60
+        },
+        {
+          "name": "Figma",
+          "icon": "https://img.icons8.com/color/48/figma.png",
+          "knowledgeLevel": 60
+        }
+      ]
+    },
+    {
+      "category": "Additional Knowledge",
+      "skills": [
+        {
+          "name": "Responsive Design",
+          "icon": "https://img.icons8.com/color/48/responsive-design.png",
+          "knowledgeLevel": 85
+        },
+        {
+          "name": "SEO",
+          "icon": "https://img.icons8.com/color/48/seo.png",
+          "knowledgeLevel": 60
+        },
+        {
+          "name": "Web Performance",
+          "icon": "https://img.icons8.com/color/48/speed.png",
+          "knowledgeLevel": 65
+        },
+        {
+          "name": "Web Accessibility",
+          "icon": "https://img.icons8.com/color/48/accessibility.png",
+          "knowledgeLevel": 50
+        }
+      ]
+    }
+  ]
+}

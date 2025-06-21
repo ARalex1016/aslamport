@@ -1,0 +1,64 @@
+@import "tailwindcss";
+
+:root {
+  /* Colors */
+  --primary: 0, 0, 0;
+  --secondary: 0, 188, 251;
+  --gray: 21, 21, 21;
+
+  /* Spacing */
+  --sidePadding: 20px;
+  --menuHeight: 60px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@theme {
+  --color-primary: rgb(var(--primary));
+  --color-secondary: rgb(var(--secondary));
+  --color-gray: rgb(var(--gray));
+
+  --spacing-sidePadding: var(--sidePadding);
+  --spacing-menuHeight: var(--menuHeight);
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgb(var(--primary));
+}
+
+/* For the scrollbar thumb (the draggable part) */
+::-webkit-scrollbar-thumb {
+  background: rgb(var(--secogit branch -M mainndary));
+  border-radius: 2px;
+}
+
+/* Slider Indicator / Pagination Start */
+.custom-pagination .swiper-pagination-bullet {
+  background: #ddd;
+  width: 10px;
+  height: 10px;
+  border: 2px solid white;
+  border-radius: 50%;
+  opacity: 1;
+}
+
+.custom-pagination .swiper-pagination-bullet-active {
+  background: rgb(var(--secondary));
+  transform: scale(1.2);
+}
+/* Slider Indicator / Pagination End */
+
+body {
+  margin: 0;
+  background-color: rgb(var(--primary));
+}
+
+.rounded-inherit {
+  border-radius: inherit;
+}
