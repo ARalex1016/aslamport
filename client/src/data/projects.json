@@ -1,0 +1,27 @@
+{
+  "projects": [
+    {
+      "title": "Rojgaar Link",
+      "thumbnail": "",
+      "technologies": [
+        "React js",
+        "Node js",
+        "MongoDB",
+        "Express Js",
+        "Tailwindcss"
+      ],
+      "completionDate": "2025-5",
+      "summary": "This is a demo project that I built for this and that purposes with the help of displayed technologies This is a demo project that I built for this and that purposes with the help of displayed technologies This is a demo project that I built for this and that purposes with the help of displayed technologies",
+      "liveDemoUrl": "https://rojgaar-link.onrender.com/",
+      "sourceCodeUrl": "",
+      "features": [
+        "Responsive design",
+        "Authentication system",
+        "Real-time updates"
+      ],
+      "role": "Full Stack Developer",
+      "duration": "3 months",
+      "teamSize": 1
+    }
+  ]
+}
