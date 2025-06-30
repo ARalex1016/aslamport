@@ -1,4 +1,5 @@
 import { useState, useRef } from "react";
+import { animate, motion, useInView } from "framer-motion";
 
 // Components
 import { LoaderIcon } from "../Icons";
@@ -11,6 +12,12 @@ import { SendIcon } from "../Icons";
 import emailjs from "@emailjs/browser";
 
 const Contact = () => {
+  const contactRef = useRef(null);
+
+  const isInView = useInView(contactRef, {
+    once: true,
+  });
+
   const initialData = {
     name: "",
     email: "",
@@ -32,7 +39,7 @@ const Contact = () => {
 
     emailjs
       .sendForm("service_hwqdhx6", "template_md5to4b", formRef.current, {
-        publicKey: "X_eQ3IDZ9RvKtpXE",
+        publicKey: "GtqSS3XeDA5CPKVZ-",
       })
       .then(
         (result) => {
@@ -64,7 +71,24 @@ const Contact = () => {
   };
 
   return (
-    <section
+    <motion.section
+      ref={contactRef}
+      variants={{
+        initial: {
+          x: -300,
+          opacity: 0,
+        },
+        animate: {
+          x: 0,
+          opacity: 1,
+        },
+      }}
+      initial="initial"
+      animate={isInView ? "animate" : "initial"}
+      transition={{
+        duration: 1,
+        ease: "linear",
+      }}
       id="contact"
       className="w-full text-white bg-gray rounded-2xl flex flex-col items-center gap-y-2 p-8"
     >
@@ -122,7 +146,7 @@ const Contact = () => {
           )}
         </button>
       </form>
-    </section>
+    </motion.section>
   );
 };
 

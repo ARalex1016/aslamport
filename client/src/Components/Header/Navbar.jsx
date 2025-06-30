@@ -4,9 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 // Components
 import SocialMedia from "../SocialMedia";
 
-const Navbar = () => {
-  const menuItems = ["hero", "skills", "projects", "contact"];
-
+export const NavLink = ({ key, sectionId, className, children }) => {
   const scrollToSection = (id, index) => {
     if (id === "hero" || index === 0) {
       // Scroll to the top
@@ -21,16 +19,30 @@ const Navbar = () => {
   };
 
   return (
+    <p
+      key={key}
+      onClick={() => scrollToSection(sectionId)}
+      className={`${className}`}
+    >
+      {children}
+    </p>
+  );
+};
+
+const Navbar = () => {
+  const menuItems = ["hero", "skills", "projects", "contact"];
+
+  return (
     <>
       {menuItems.map((item) => {
         return (
-          <p
+          <NavLink
             key={item}
-            onClick={() => scrollToSection(item)}
+            sectionId={item}
             className="w-full text-xl font-medium text-white  pl-10 transition-all duration-300 hover:text-secondary"
           >
             {item.charAt(0).toUpperCase() + item.slice(1)}
-          </p>
+          </NavLink>
         );
       })}
     </>

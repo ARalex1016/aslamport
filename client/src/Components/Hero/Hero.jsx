@@ -1,13 +1,12 @@
-import { useRef } from "react";
-import { motion, useScroll } from "framer-motion";
+import { motion } from "framer-motion";
 
 // Components
 import { TypingEffect } from "../TypingEffect ";
 import SocialMedia from "../SocialMedia";
+import { NavLink } from "../Header/Navbar";
 
 // Icons
 import { ArrowDownIcon } from "../Icons";
-import { duration } from "@mui/material/styles";
 
 const Button = ({ children, className }) => {
   return (
@@ -35,26 +34,10 @@ const textVariants = {
 };
 
 const Hero = () => {
-  const heroRef = useRef(null);
-
-  const { scrollY, scrollYProgress } = useScroll({
-    target: heroRef,
-  });
-
   return (
-    <motion.section
-      ref={heroRef}
-      variants={{
-        initial: {
-          scale: 1,
-        },
-        animate: {
-          scale: 0.2,
-        },
-      }}
-      initial="initial"
+    <section
       id="hero"
-      className="w-screen h-screen bg-transparent flex flex-col items-center gap-y-10 py-menuHeight fixed top-0 z-10"
+      className="w-screen h-screen bg-transparent flex flex-col items-center gap-y-10 pt-menuHeight fixed top-0 z-10"
       style={{
         paddingLeft: `calc(var(--sidePadding) * 2)`,
         paddingRight: `calc(var(--sidePadding) * 2)`,
@@ -63,8 +46,9 @@ const Hero = () => {
       <img
         src="/Images/avatar2.png"
         alt="Image"
+        loading="lazy"
         // srcset=""
-        className="size-56 rounded-full object-cover"
+        className="size-52 rounded-full object-cover"
       />
 
       {/* Text */}
@@ -95,7 +79,7 @@ const Hero = () => {
           </Button>
 
           <Button className="text-secondary hover:text-primary hover:bg-secondary">
-            Contact Me
+            <NavLink sectionId={"contact"}>Contact Me</NavLink>
           </Button>
         </motion.div>
       </motion.div>
@@ -122,7 +106,7 @@ const Hero = () => {
       >
         <span className="text-xs ">Scroll</span> <ArrowDownIcon size={16} />
       </motion.div>
-    </motion.section>
+    </section>
   );
 };
 
