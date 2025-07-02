@@ -50,7 +50,7 @@ const Project = () => {
               <img
                 src={project.thumbnail}
                 alt={`${project.title}-image`}
-                className="rounded-inherit w-full aspect-video bg-white/70 object-cover"
+                className="rounded-inherit w-full aspect-video bg-white/70 object-fill"
               />
 
               {/* Title */}
@@ -88,7 +88,10 @@ const Project = () => {
               </div>
 
               {/* Live Demo */}
-              <button className="rounded-inherit text-white/70 text-md font-medium bg-secondary/70 inline-block px-5 py-1 mt-1">
+              <button
+                title={project.liveDemoUrl}
+                className="rounded-inherit text-white/70 text-md font-medium bg-secondary/30 inline-block px-5 py-1 mt-1"
+              >
                 <a
                   href={project.liveDemoUrl}
                   target="_blank"

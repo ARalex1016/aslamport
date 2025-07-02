@@ -97,7 +97,7 @@ const Contact = () => {
       <form
         ref={formRef}
         onSubmit={handleSubmit}
-        className="w-full flex flex-col gap-y-3"
+        className="w-full flex flex-col gap-y-4"
       >
         <input
           type="text"

@@ -21,6 +21,8 @@ const Header = () => {
 
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
 
+  const name = import.meta.env.VITE_API_NAME;
+
   useEffect(() => {
     const handleResize = () => {
       setScreenWidth(window.innerWidth);
@@ -38,6 +40,10 @@ const Header = () => {
   return (
     <>
       <header className="w-full h-menuHeight bg-primary/40 backdrop-blur-sm flex justify-between items-center px-sidePadding fixed top-0 z-50">
+        <p className="text-white hover:text-secondary font-bold transition-all duration-300">
+          {name}
+        </p>
+
         <DesktopNavbar />
 
         {screenWidth <= 640 ? (

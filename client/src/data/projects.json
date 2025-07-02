@@ -2,13 +2,14 @@
   "projects": [
     {
       "title": "Rojgaar Link",
-      "thumbnail": "",
+      "thumbnail": "/Images/rojgaar-link.png",
       "technologies": [
         "React js",
         "Node js",
         "MongoDB",
         "Express Js",
-        "Tailwindcss"
+        "Tailwindcss",
+        "Framer-motion"
       ],
       "completionDate": "2025-5",
       "summary": "This is a demo project that I built for this and that purposes with the help of displayed technologies This is a demo project that I built for this and that purposes with the help of displayed technologies This is a demo project that I built for this and that purposes with the help of displayed technologies",
@@ -24,18 +25,19 @@
       "teamSize": 1
     },
     {
-      "title": "Rojgaar Link",
-      "thumbnail": "",
+      "title": "Test Your Luck",
+      "thumbnail": "/Images/test-your-luck.png",
       "technologies": [
         "React js",
         "Node js",
         "MongoDB",
         "Express Js",
-        "Tailwindcss"
+        "Tailwindcss",
+        "Framer-motion"
       ],
-      "completionDate": "2025-5",
+      "completionDate": "2024-8",
       "summary": "This is a demo project that I built for this and that purposes with the help of displayed technologies This is a demo project that I built for this and that purposes with the help of displayed technologies This is a demo project that I built for this and that purposes with the help of displayed technologies",
-      "liveDemoUrl": "https://rojgaar-link.onrender.com/",
+      "liveDemoUrl": "https://test-your-luck-2.onrender.com",
       "sourceCodeUrl": "",
       "features": [
         "Responsive design",

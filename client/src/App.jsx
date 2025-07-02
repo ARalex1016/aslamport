@@ -26,8 +26,8 @@ function App() {
                   <Project />
                   {/* <Services /> */}
                   <Contact />
+                  <Footer />
                 </Background>
-                <Footer />
               </>
             }
           />

@@ -5,12 +5,14 @@ import {
   FacebookOutlinedIconMui,
 } from "./Icons";
 
+const socialMediaStyle = "text-white hover:text-secondary";
+
 const SocialMedia = ({ className }) => {
   return (
-    <div className={`text-secondary flex flex-row gap-x-2 ${className}`}>
-      <GitHubIconMui />
-      <WhatsAppIconMui />
-      <FacebookOutlinedIconMui />
+    <div className={`flex flex-row gap-x-2 ${className}`}>
+      <GitHubIconMui className={socialMediaStyle} />
+      <WhatsAppIconMui className={socialMediaStyle} />
+      <FacebookOutlinedIconMui className={socialMediaStyle} />
     </div>
   );
 };

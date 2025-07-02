@@ -5,6 +5,7 @@ import {
   Share2,
   ChevronRight,
   ChevronLeft,
+  ArrowUp,
   ArrowDown,
   Send,
   Loader,
@@ -35,6 +36,10 @@ export const ChevronLeftIcon = ({ size = 24, className }) => {
   return <ChevronLeft size={size} className={`${className}`} />;
 };
 
+export const ArrowUpIcon = ({ size = 24, className }) => {
+  return <ArrowUp size={size} className={`${className}`} />;
+};
+
 export const ArrowDownIcon = ({ size = 24, className }) => {
   return <ArrowDown size={size} className={`${className}`} />;
 };
@@ -48,14 +53,14 @@ export const LoaderIcon = ({ size = 24, className }) => {
 };
 
 // Mui
-export const WhatsAppIconMui = () => {
-  return <WhatsAppIcon />;
+export const WhatsAppIconMui = ({ className }) => {
+  return <WhatsAppIcon className={`${className}`} />;
 };
 
-export const GitHubIconMui = () => {
-  return <GitHubIcon />;
+export const GitHubIconMui = ({ className }) => {
+  return <GitHubIcon className={`${className}`} />;
 };
 
-export const FacebookOutlinedIconMui = () => {
-  return <FacebookOutlinedIcon />;
+export const FacebookOutlinedIconMui = ({ className }) => {
+  return <FacebookOutlinedIcon className={`${className}`} />;
 };
