@@ -11,6 +11,10 @@ import { SendIcon } from "../Icons";
 // emailjs
 import emailjs from "@emailjs/browser";
 
+const serviceId = import.meta.env.VITE_API_EMAILJS_SERVICE_ID;
+const templateId = import.meta.env.VITE_API_EMAILJS_TEMPLATE_ID;
+const publicId = import.meta.env.VITE_API_EMAILJS_PUBLIC_ID;
+
 const Contact = () => {
   const contactRef = useRef(null);
 
@@ -38,8 +42,8 @@ const Contact = () => {
     setSending(true);
 
     emailjs
-      .sendForm("service_hwqdhx6", "template_md5to4b", formRef.current, {
-        publicKey: "GtqSS3XeDA5CPKVZ-",
+      .sendForm(serviceId, templateId, formRef.current, {
+        publicKey: publicId,
       })
       .then(
         (result) => {

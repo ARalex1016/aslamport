@@ -25,19 +25,12 @@
       "teamSize": 1
     },
     {
-      "title": "Test Your Luck",
-      "thumbnail": "/Images/test-your-luck.png",
-      "technologies": [
-        "React js",
-        "Node js",
-        "MongoDB",
-        "Express Js",
-        "Tailwindcss",
-        "Framer-motion"
-      ],
+      "title": "Fetch Tube",
+      "thumbnail": "/Images/fetch-tube.png",
+      "technologies": ["React js", "Tailwindcss"],
       "completionDate": "2024-8",
       "summary": "This is a demo project that I built for this and that purposes with the help of displayed technologies This is a demo project that I built for this and that purposes with the help of displayed technologies This is a demo project that I built for this and that purposes with the help of displayed technologies",
-      "liveDemoUrl": "https://test-your-luck-2.onrender.com",
+      "liveDemoUrl": "https://fetchtube.netlify.app/",
       "sourceCodeUrl": "",
       "features": [
         "Responsive design",
@@ -45,7 +38,7 @@
         "Real-time updates"
       ],
       "role": "Full Stack Developer",
-      "duration": "3 months",
+      "duration": "1 months",
       "teamSize": 1
     }
   ]

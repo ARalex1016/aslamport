@@ -33,12 +33,12 @@ const Footer = () => {
       }}
       className="w-full flex flex-col justify-center items-center gap-y-2 pb-2"
     >
-      <p className="text-white text-sm">
+      <p className="text-white/60 text-sm">
         ©{" "}
         <span className="font-medium">
           {currentYear} {name}
         </span>{" "}
-        All right reserved
+        All right reserveds
       </p>
 
       <SocialMedia />

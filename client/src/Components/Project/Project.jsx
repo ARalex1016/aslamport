@@ -50,7 +50,7 @@ const Project = () => {
               <img
                 src={project.thumbnail}
                 alt={`${project.title}-image`}
-                className="rounded-inherit w-full aspect-video bg-white/70 object-fill"
+                className="rounded-inherit w-full aspect-video bg-white/40 object-contain"
               />
 
               {/* Title */}

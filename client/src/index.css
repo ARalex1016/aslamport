@@ -12,7 +12,9 @@
 }
 
 html {
+  user-select: none;
   scroll-behavior: smooth;
+  scroll-padding-top: var(--menuHeight);
 }
 
 @theme {

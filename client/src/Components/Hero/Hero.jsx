@@ -33,6 +33,13 @@ const textVariants = {
   },
 };
 
+const handleScrollClick = () => {
+  window.scrollTo({
+    top: window.innerHeight - 50,
+    behavior: "smooth",
+  });
+};
+
 const Hero = () => {
   return (
     <section
@@ -86,6 +93,7 @@ const Hero = () => {
 
       {/* Scroll */}
       <motion.div
+        onClick={handleScrollClick}
         variants={{
           initial: {
             y: 0,
@@ -104,7 +112,8 @@ const Hero = () => {
           top: `calc(100svh - 36px)`,
         }}
       >
-        <span className="text-xs ">Scroll</span> <ArrowDownIcon size={16} />
+        <span className="text-xs ">Scroll</span>
+        <ArrowDownIcon size={16} />
       </motion.div>
     </section>
   );

@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 // Components
 import SocialMedia from "../SocialMedia";
 
-export const NavLink = ({ key, sectionId, className, children }) => {
+export const NavLink = ({ sectionId, className, children }) => {
   const scrollToSection = (id, index) => {
     if (id === "hero" || index === 0) {
       // Scroll to the top
@@ -19,11 +19,7 @@ export const NavLink = ({ key, sectionId, className, children }) => {
   };
 
   return (
-    <p
-      key={key}
-      onClick={() => scrollToSection(sectionId)}
-      className={`${className}`}
-    >
+    <p onClick={() => scrollToSection(sectionId)} className={`${className}`}>
       {children}
     </p>
   );
@@ -34,15 +30,16 @@ const Navbar = () => {
 
   return (
     <>
-      {menuItems.map((item) => {
+      {menuItems.map((item, index) => {
         return (
-          <NavLink
-            key={item}
-            sectionId={item}
-            className="w-full text-xl font-medium text-white  pl-10 transition-all duration-300 hover:text-secondary"
-          >
-            {item.charAt(0).toUpperCase() + item.slice(1)}
-          </NavLink>
+          <div key={index}>
+            <NavLink
+              sectionId={item}
+              className="w-full text-xl font-medium text-white  pl-10 transition-all duration-300 hover:text-secondary"
+            >
+              {item.charAt(0).toUpperCase() + item.slice(1)}
+            </NavLink>
+          </div>
         );
       })}
     </>
