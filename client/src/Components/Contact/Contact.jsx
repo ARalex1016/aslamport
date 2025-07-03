@@ -94,9 +94,13 @@ const Contact = () => {
         ease: "linear",
       }}
       id="contact"
-      className="w-full text-white bg-gray rounded-2xl flex flex-col items-center gap-y-2 p-8"
+      className="w-full max-w-[400px] text-white bg-gray rounded-2xl flex flex-col gap-y-2 p-8 m-auto"
     >
-      <h2 className="text-2xl">Contact</h2>
+      <h2 className="text-white text-2xl text-center">Contact</h2>
+
+      <p className="text-xs text-white/60">
+        Feel free to react out if you'd like to collaborate!
+      </p>
 
       <form
         ref={formRef}

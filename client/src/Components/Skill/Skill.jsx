@@ -101,7 +101,7 @@ const Slider = ({ slides }) => {
       pagination={false}
       autoplay={false}
       onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
-      className="w-full"
+      className="w-full max-w-[400px]"
     >
       {slides.map((slide, index) => (
         <SwiperSlide

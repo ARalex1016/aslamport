@@ -49,7 +49,9 @@ const Navbar = () => {
 export const DesktopNavbar = () => {
   return (
     <>
-      <div></div>
+      <nav className="flex flex-row">
+        <Navbar />
+      </nav>
     </>
   );
 };

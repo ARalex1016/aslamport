@@ -44,7 +44,7 @@ const Header = () => {
           {name}
         </p>
 
-        <DesktopNavbar />
+        {screenWidth <= 640 ? "" : <DesktopNavbar />}
 
         {screenWidth <= 640 ? (
           menuIsOpen ? (
