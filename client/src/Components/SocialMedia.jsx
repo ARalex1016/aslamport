@@ -7,21 +7,34 @@ import {
 
 const socialMediaStyle = "text-white hover:text-secondary";
 
+const socialPlatforms = [
+  {
+    name: "Github",
+    link: "https://github.com/ARalex1016",
+    Icon: GitHubIconMui,
+  },
+  {
+    name: "What's App",
+    link: "https://wa.me/9779701425253",
+    Icon: WhatsAppIconMui,
+  },
+  {
+    name: "Facebook",
+    link: "https://www.facebook.com/profile.php?id=100015751629762",
+    Icon: FacebookOutlinedIconMui,
+  },
+];
+
 const SocialMedia = ({ className }) => {
   return (
     <div className={`flex flex-row gap-x-2 ${className}`}>
-      <a href="https://github.com/" target="_blank" className="">
-        <GitHubIconMui className={socialMediaStyle} />
-      </a>
-      <a href="#">
-        <WhatsAppIconMui className={socialMediaStyle} />
-      </a>
-      <a
-        href="https://www.facebook.com/profile.php?id=100015751629762"
-        target="_blank"
-      >
-        <FacebookOutlinedIconMui className={socialMediaStyle} />
-      </a>
+      {socialPlatforms.map(({ name, link, Icon }, index) => {
+        return (
+          <a key={index} href={link} target="_blank" title={name}>
+            <Icon className={socialMediaStyle} />
+          </a>
+        );
+      })}
     </div>
   );
 };
