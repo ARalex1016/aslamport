@@ -11,6 +11,7 @@ import "swiper/css/pagination";
 
 // Components
 import { ChevronLeftIcon, ChevronRightIcon } from "../Icons";
+import { ToolTip } from "../TootTip";
 
 // Data
 import skillsObj from "../../data/skills.json";
@@ -32,52 +33,54 @@ const Slides = ({ skills }) => {
 
         return (
           <div ref={ref} key={index} className="flex flex-col gap-y-[2px]">
-            <div className="w-full flex flex-row justify-between items-center">
-              <p className="w-[12ch] text-xs text-nowrap">{skill.name}</p>
+            <ToolTip title={skill.name}>
+              <div className="w-full flex flex-row justify-between items-center">
+                <p className="w-[12ch] text-xs text-nowrap">{skill.name}</p>
 
-              <img
-                src={skill.icon}
-                alt={`${skill.name}-icon`}
-                className="size-8"
-              />
+                <img
+                  src={skill.icon}
+                  alt={`${skill.name}-icon`}
+                  className="size-8"
+                />
 
-              <p className="text-xs w-[5ch] text-right">
-                {isInView && (
-                  <CountUp
-                    start={0}
-                    end={skill.knowledgeLevel}
-                    duration={animationDuration + index * 0.1}
-                    delay={0}
-                    useEasing={true}
-                  />
-                )}
-                %
-              </p>
-            </div>
+                <p className="text-xs w-[5ch] text-right">
+                  {isInView && (
+                    <CountUp
+                      start={0}
+                      end={skill.knowledgeLevel}
+                      duration={animationDuration + index * 0.1}
+                      delay={0}
+                      useEasing={true}
+                    />
+                  )}
+                  %
+                </p>
+              </div>
 
-            {/* Progress Bar */}
-            <div className="w-full h-1 bg-secondary/30 rounded-md">
-              <motion.div
-                variants={{
-                  initial: {
-                    width: 0,
-                  },
-                  final: {
-                    width: `${skill.knowledgeLevel}%`,
-                  },
-                }}
-                initial="initial"
-                animate={isInView ? "final" : "initial"}
-                transition={{
-                  duration: isInView ? animationDuration + index * 0.1 : 0,
-                  ease: "linear",
-                }}
-                className={`h-full bg-secondary shadow-xs shadow-secondary`}
-                style={{
-                  borderRadius: "inherit",
-                }}
-              ></motion.div>
-            </div>
+              {/* Progress Bar */}
+              <div className="w-full h-1 bg-secondary/30 rounded-md">
+                <motion.div
+                  variants={{
+                    initial: {
+                      width: 0,
+                    },
+                    final: {
+                      width: `${skill.knowledgeLevel}%`,
+                    },
+                  }}
+                  initial="initial"
+                  animate={isInView ? "final" : "initial"}
+                  transition={{
+                    duration: isInView ? animationDuration + index * 0.1 : 0,
+                    ease: "linear",
+                  }}
+                  className={`h-full bg-secondary shadow-xs shadow-secondary`}
+                  style={{
+                    borderRadius: "inherit",
+                  }}
+                ></motion.div>
+              </div>
+            </ToolTip>
           </div>
         );
       })}
