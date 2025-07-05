@@ -1,9 +1,12 @@
 import { useRef } from "react";
-import { animate, motion, useInView } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 
 // Components
 import SocialMedia from "../SocialMedia";
-import BackToTop from "../BackToTop";
+import { ToolTip } from "../TootTip";
+
+// Utils
+import { backToTop } from "../../Utils/BackToTop";
 
 const Footer = () => {
   const footerRef = useRef(null);
@@ -11,7 +14,6 @@ const Footer = () => {
     once: true,
   });
 
-  const name = import.meta.env.VITE_API_NAME;
   const currentYear = new Date().getFullYear();
 
   return (
@@ -37,11 +39,16 @@ const Footer = () => {
         Aslam © <span>{currentYear}</span>
       </p>
 
-      <img src="/Svgs/as-logo.svg" alt="Logo" className="size-10" />
+      <ToolTip title="Back to top">
+        <img
+          src="/Svgs/as-logo-lightblue.svg"
+          alt="Logo"
+          onClick={backToTop}
+          className="size-10"
+        />
+      </ToolTip>
 
       <SocialMedia />
-
-      <BackToTop className="rounded-full bg-secondary/30 hover:bg-secondary/50 p-1 absolute right-sidePadding bottom-2 animate-bounce" />
     </motion.section>
   );
 };

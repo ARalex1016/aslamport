@@ -1,12 +1,14 @@
-import { useState, useEffect } from "react";
-
 // Components
 import { DesktopNavbar, MobileNavbar } from "./Navbar";
-import SocialMedia from "../SocialMedia";
 import { MenuIcon, XIcon } from "../Icons";
+import { ToolTip } from "../TootTip";
+
+// Utils
+import { backToTop } from "../../Utils/BackToTop";
 
 // Hooks
 import { useMenuToggle } from "../../Hooks/useMenuToggle";
+import { useScreenWidth } from "../../Hooks/useScreenWidth";
 
 const IconContainer = ({ children, className, onClick }) => {
   return (
@@ -19,33 +21,31 @@ const IconContainer = ({ children, className, onClick }) => {
 const Header = () => {
   const { menuIsOpen, openMenu, closeMenu } = useMenuToggle();
 
-  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
-
-  const name = import.meta.env.VITE_API_NAME;
-
-  useEffect(() => {
-    const handleResize = () => {
-      setScreenWidth(window.innerWidth);
-      closeMenu();
-    };
-
-    window.addEventListener("resize", handleResize);
-
-    // Cleanup event listener on component unmount
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
+  const { screenWidth } = useScreenWidth();
 
   return (
     <>
       <header className="w-full h-menuHeight bg-primary/40 backdrop-blur-sm flex justify-between items-center px-sidePadding fixed top-0 z-50">
-        <img src="/Svgs/as-logo.svg" alt="" className="size-8" />
+        {/* Logo */}
+        <ToolTip title={"Aslam"}>
+          <div onClick={backToTop} className="logo-hover">
+            <img
+              src="/Svgs/as-logo-white.svg"
+              alt="logo"
+              className="default-img"
+            />
+            <img
+              src="/Svgs/as-logo-lightblue.svg"
+              alt="logo-hover"
+              className="hover-img"
+            />
+          </div>
+        </ToolTip>
 
-        {screenWidth <= 640 ? "" : <DesktopNavbar />}
+        {screenWidth > 640 && <DesktopNavbar />}
 
-        {screenWidth <= 640 ? (
-          menuIsOpen ? (
+        {screenWidth <= 640 &&
+          (menuIsOpen ? (
             <IconContainer onClick={closeMenu} className="hover:bg-red-500/20">
               <XIcon className="text-red-500" />
             </IconContainer>
@@ -53,10 +53,7 @@ const Header = () => {
             <IconContainer onClick={openMenu} className="hover:bg-secondary/20">
               <MenuIcon className="text-secondary" />
             </IconContainer>
-          )
-        ) : (
-          <SocialMedia />
-        )}
+          ))}
       </header>
 
       <MobileNavbar menuIsOpen={menuIsOpen} closeMenu={closeMenu} />

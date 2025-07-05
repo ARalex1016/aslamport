@@ -4,6 +4,10 @@ import { motion } from "framer-motion";
 import { TypingEffect } from "../TypingEffect ";
 import SocialMedia from "../SocialMedia";
 import { NavLink } from "../Header/Navbar";
+import { ToolTip } from "../TootTip";
+
+// Hooks
+import { useScreenWidth } from "../../Hooks/useScreenWidth";
 
 // Icons
 import { ArrowDownIcon } from "../Icons";
@@ -11,7 +15,7 @@ import { ArrowDownIcon } from "../Icons";
 const Button = ({ children, className }) => {
   return (
     <button
-      className={`font-medium rounded-md px-5 py-1 border-2 border-secondary transition-all duration-300 ${className}`}
+      className={`font-medium rounded-md px-3 py-1 border-2 border-secondary transition-all duration-300 ${className}`}
     >
       {children}
     </button>
@@ -41,6 +45,8 @@ const handleScrollClick = () => {
 };
 
 const Hero = () => {
+  const { screenWidth } = useScreenWidth();
+
   return (
     <section
       id="hero"
@@ -50,13 +56,15 @@ const Hero = () => {
         paddingRight: `calc(var(--sidePadding) * 2)`,
       }}
     >
-      <img
-        src="/Svgs/as-logo.svg"
-        alt="Image"
-        loading="lazy"
-        // srcset=""
-        className="size-56 rounded-full object-fill"
-      />
+      <ToolTip title={"Aslam"}>
+        <img
+          src="/Svgs/as-logo-lightblue.svg"
+          alt="Image"
+          loading="lazy"
+          // srcset=""
+          className="size-56 rounded-full object-fill"
+        />
+      </ToolTip>
 
       {/* Text */}
       <motion.div
@@ -77,12 +85,16 @@ const Hero = () => {
           stay for ever.
         </motion.p>
 
-        <SocialMedia className="my-2" />
+        {screenWidth <= 640 ? (
+          <SocialMedia className="my-2" />
+        ) : (
+          <SocialMedia className="flex !flex-col gap-y-4 absolute right-4 top-1/2 -translate-y-1/2" />
+        )}
 
         {/* Action Buttons */}
         <motion.div variants={textVariants} className="flex flex-row gap-x-5">
           <Button className="text-primary bg-secondary hover:text-secondary hover:bg-primary">
-            Hire Me
+            <NavLink sectionId={"projects"}>Latest Projects</NavLink>
           </Button>
 
           <Button className="text-secondary hover:text-primary hover:bg-secondary">

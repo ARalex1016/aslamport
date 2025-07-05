@@ -1,8 +1,8 @@
 import Tooltip from "@mui/material/Tooltip";
 
-export const ToolTip = ({ title, children }) => {
+export const ToolTip = ({ title, className, children }) => {
   return (
-    <Tooltip title={title} arrow followCursor>
+    <Tooltip title={title} className={`${className}`} arrow followCursor>
       {children}
     </Tooltip>
   );

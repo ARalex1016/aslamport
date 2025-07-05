@@ -30,6 +30,7 @@ const Project = () => {
           return (
             <motion.div
               ref={ref}
+              key={index}
               variants={{
                 initial: {
                   x: -300,
@@ -46,10 +47,12 @@ const Project = () => {
                 duration: 1,
                 ease: "linear",
               }}
-              key={index}
-              className="w-full max-w-[400px] bg-gray rounded-xl flex flex-col justify-center items-center gap-y-2 px-5 py-5"
+              className="w-full max-w-[400px] bg-gray rounded-xl px-5 py-5"
             >
-              <ToolTip title={project.title}>
+              <ToolTip
+                title={project.title}
+                className="rounded-xl flex flex-col justify-center items-center gap-y-2"
+              >
                 {/* Thumbnail */}
                 <img
                   src={project.thumbnail}
@@ -91,17 +94,17 @@ const Project = () => {
                   })}
                 </div>
 
-                {/* Live Demo */}
+                {/* Demo Button */}
                 <button
                   title={project.liveDemoUrl}
-                  className="rounded-inherit text-white/70 text-md font-medium bg-secondary/30 inline-block px-5 py-1 mt-1"
+                  className="rounded-inherit text-white/70 text-sm font-medium bg-secondary/30 inline-block px-5 py-1 mt-1"
                 >
                   <a
                     href={project.liveDemoUrl}
                     target="_blank"
                     title={project.liveDemoUrl}
                   >
-                    Live Demo
+                    See Demo
                   </a>
                 </button>
               </ToolTip>
