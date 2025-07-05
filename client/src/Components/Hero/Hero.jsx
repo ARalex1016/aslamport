@@ -35,7 +35,7 @@ const textVariants = {
 
 const handleScrollClick = () => {
   window.scrollTo({
-    top: window.innerHeight - 50,
+    top: window.innerHeight - 60,
     behavior: "smooth",
   });
 };
@@ -51,11 +51,11 @@ const Hero = () => {
       }}
     >
       <img
-        src="/Images/avatar2.png"
+        src="/Svgs/as-logo.svg"
         alt="Image"
         loading="lazy"
         // srcset=""
-        className="size-52 rounded-full object-cover"
+        className="size-56 rounded-full object-fill"
       />
 
       {/* Text */}

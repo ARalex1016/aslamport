@@ -33,13 +33,11 @@ const Footer = () => {
       }}
       className="w-full flex flex-col justify-center items-center gap-y-2 pb-2"
     >
-      <p className="text-white/60 text-sm">
-        ©{" "}
-        <span className="font-medium">
-          {currentYear} {name}
-        </span>{" "}
-        All right reserveds
+      <p className="text-white/60 text-sm font-medium">
+        Aslam © <span>{currentYear}</span>
       </p>
+
+      <img src="/Svgs/as-logo.svg" alt="Logo" className="size-10" />
 
       <SocialMedia />
 

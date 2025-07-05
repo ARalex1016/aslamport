@@ -40,9 +40,7 @@ const Header = () => {
   return (
     <>
       <header className="w-full h-menuHeight bg-primary/40 backdrop-blur-sm flex justify-between items-center px-sidePadding fixed top-0 z-50">
-        <p className="text-white hover:text-secondary font-bold transition-all duration-300">
-          {name}
-        </p>
+        <img src="/Svgs/as-logo.svg" alt="" className="size-8" />
 
         {screenWidth <= 640 ? "" : <DesktopNavbar />}
 
