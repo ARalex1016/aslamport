@@ -1,0 +1,46 @@
+{
+  "technologies": [
+    {
+      "name": "javascript"
+    },
+    {
+      "name": "reactjs"
+    },
+    {
+      "name": "redux"
+    },
+    {
+      "name": "nodejs"
+    },
+    {
+      "name": "expressjs"
+    },
+    {
+      "name": "mongoDB"
+    },
+    {
+      "name": "mongoose"
+    },
+    {
+      "name": "cloudinary"
+    },
+    {
+      "name": "html"
+    },
+    {
+      "name": "css"
+    },
+    {
+      "name": "tailwindcss"
+    },
+    {
+      "name": "git"
+    },
+    {
+      "name": "github"
+    },
+    {
+      "name": "figma"
+    }
+  ]
+}

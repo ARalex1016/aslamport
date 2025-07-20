@@ -48,7 +48,7 @@ const Footer = () => {
         />
       </ToolTip>
 
-      <SocialMedia />
+      <SocialMedia className="gap-x-4" />
     </motion.section>
   );
 };

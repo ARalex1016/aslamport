@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 
 // Components
@@ -5,6 +6,7 @@ import { TypingEffect } from "../TypingEffect ";
 import SocialMedia from "../SocialMedia";
 import { NavLink } from "../Header/Navbar";
 import { ToolTip } from "../TootTip";
+import AboutMe from "../AboutMe/AboutMe";
 
 // Hooks
 import { useScreenWidth } from "../../Hooks/useScreenWidth";
@@ -12,10 +14,11 @@ import { useScreenWidth } from "../../Hooks/useScreenWidth";
 // Icons
 import { ArrowDownIcon } from "../Icons";
 
-const Button = ({ children, className }) => {
+const Button = ({ onClick, children, className }) => {
   return (
     <button
-      className={`font-medium rounded-md px-3 py-1 border-2 border-secondary transition-all duration-300 ${className}`}
+      onClick={onClick}
+      className={`sm:text-sm md:text-base font-medium text-nowrap rounded-md px-3 py-1 border-2 border-secondary transition-all duration-300 ${className}`}
     >
       {children}
     </button>
@@ -47,22 +50,50 @@ const handleScrollClick = () => {
 const Hero = () => {
   const { screenWidth } = useScreenWidth();
 
+  const [isOpenAboutMe, setIsOpenAboutMe] = useState(false);
+
+  const openAboutMe = () => {
+    setIsOpenAboutMe(true);
+  };
+
+  const closeAboutMe = () => {
+    setIsOpenAboutMe(false);
+  };
+
   return (
     <section
       id="hero"
-      className="w-screen h-screen bg-transparent flex flex-col items-center gap-y-10 pt-menuHeight fixed top-0 z-10"
+      className="w-screen h-screen bg-transparent flex flex-col sm:flex-row-reverse items-center gap-y-10 pt-menuHeight fixed top-0 z-10"
       style={{
         paddingLeft: `calc(var(--sidePadding) * 2)`,
         paddingRight: `calc(var(--sidePadding) * 2)`,
       }}
     >
+      {isOpenAboutMe && <AboutMe close={closeAboutMe} />}
+
+      {/* Image */}
       <ToolTip title={"Aslam"}>
-        <img
-          src="/Svgs/as-logo-lightblue.svg"
+        <motion.img
+          variants={{
+            initial: {
+              opacity: 0,
+            },
+            animate: {
+              opacity: 1,
+            },
+          }}
+          initial="initial"
+          animate="animate"
+          transition={{
+            // delay: 1,
+            duration: 0.4,
+            ease: "easeIn",
+          }}
+          src="/Images/profile2.png"
           alt="Image"
           loading="lazy"
           // srcset=""
-          className="size-56 rounded-full object-fill"
+          className="size-56 sm:size-72 md:size-80 lg:size-96 rounded-full object-fill"
         />
       </ToolTip>
 
@@ -71,13 +102,13 @@ const Hero = () => {
         variants={textVariants}
         initial="initial"
         animate="animate"
-        className="w-full text-white flex flex-col gap-y-1"
+        className="w-full text-white flex flex-col gap-y-1 sm:gap-y-2 md:gap-y-4"
       >
         <motion.p variants={textVariants} className="text-2xl">
           Hi It's <span className="text-secondary">Aslam</span>
         </motion.p>
 
-        <TypingEffect className="text-2xl" />
+        <TypingEffect className="text-2xl sm:text-xl md:text-2xl" />
 
         <motion.p variants={textVariants} className="text-white/50">
           I help business owners and busy web developers to design & develop
@@ -85,16 +116,15 @@ const Hero = () => {
           stay for ever.
         </motion.p>
 
-        {screenWidth <= 640 ? (
-          <SocialMedia className="my-2" />
-        ) : (
-          <SocialMedia className="flex !flex-col gap-y-4 absolute right-4 top-1/2 -translate-y-1/2" />
-        )}
+        {screenWidth <= 640 && <SocialMedia className="my-2" />}
 
         {/* Action Buttons */}
         <motion.div variants={textVariants} className="flex flex-row gap-x-5">
-          <Button className="text-primary bg-secondary hover:text-secondary hover:bg-primary">
-            <NavLink sectionId={"projects"}>Latest Projects</NavLink>
+          <Button
+            onClick={openAboutMe}
+            className="text-primary bg-secondary hover:text-secondary hover:bg-primary"
+          >
+            About Me
           </Button>
 
           <Button className="text-secondary hover:text-primary hover:bg-secondary">
@@ -102,6 +132,10 @@ const Hero = () => {
           </Button>
         </motion.div>
       </motion.div>
+
+      {screenWidth > 640 && (
+        <SocialMedia className="flex !flex-col gap-y-4 absolute right-4 top-1/2 -translate-y-1/2" />
+      )}
 
       {/* Scroll */}
       <motion.div
@@ -119,7 +153,7 @@ const Hero = () => {
         transition={{
           duration: 1,
         }}
-        className="text-white absolute top-[100svh] flex flex-col justify-center items-center animate-bounce"
+        className="text-white absolute top-[100svh] right-1/2 translate-x-1/2 flex flex-col justify-center items-center animate-bounce"
         style={{
           top: `calc(100svh - 36px)`,
         }}
