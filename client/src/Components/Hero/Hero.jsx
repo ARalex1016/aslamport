@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { motion } from "framer-motion";
 
 // Components
@@ -10,6 +9,7 @@ import AboutMe from "../AboutMe/AboutMe";
 
 // Hooks
 import { useScreenWidth } from "../../Hooks/useScreenWidth";
+import { useAboutMeToggle } from "../../Hooks/useAboutMeToggle";
 
 // Icons
 import { ArrowDownIcon } from "../Icons";
@@ -49,16 +49,7 @@ const handleScrollClick = () => {
 
 const Hero = () => {
   const { screenWidth } = useScreenWidth();
-
-  const [isOpenAboutMe, setIsOpenAboutMe] = useState(false);
-
-  const openAboutMe = () => {
-    setIsOpenAboutMe(true);
-  };
-
-  const closeAboutMe = () => {
-    setIsOpenAboutMe(false);
-  };
+  const { isOpenAboutMe, openAboutMe, closeAboutMe } = useAboutMeToggle();
 
   return (
     <section

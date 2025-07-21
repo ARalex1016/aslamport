@@ -21,7 +21,7 @@ export const PopUpFullScreen = ({ onClose, className, children }) => {
   return (
     <div
       onClick={handleBackgroundClick}
-      className={`w-screen h-screen bg-black/60 absolute z-20 inset-0 flex flex-row justify-center items-center ${className}`}
+      className={`w-screen h-[100svh] bg-black/60 absolute z-20 inset-0 flex flex-row justify-center items-center py-menuHeight ${className}`}
     >
       {children}
     </div>

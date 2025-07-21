@@ -26,18 +26,35 @@ export const NavLink = ({ sectionId, className, children }) => {
 };
 
 const Navbar = () => {
-  const menuItems = ["hero", "skills", "projects", "contact"];
+  const menuItems = [
+    {
+      name: "home",
+      sectionId: "hero",
+    },
+    {
+      name: "skills",
+      sectionId: "skills",
+    },
+    {
+      name: "projects",
+      sectionId: "projects",
+    },
+    {
+      name: "contact",
+      sectionId: "contact",
+    },
+  ];
 
   return (
     <>
-      {menuItems.map((item, index) => {
+      {menuItems.map(({ name, sectionId }, index) => {
         return (
           <div key={index}>
             <NavLink
-              sectionId={item}
+              sectionId={sectionId}
               className="w-full text-xl font-medium text-white  pl-10 transition-all duration-300 hover:text-secondary"
             >
-              {item.charAt(0).toUpperCase() + item.slice(1)}
+              {name.charAt(0).toUpperCase() + name.slice(1)}
             </NavLink>
           </div>
         );
