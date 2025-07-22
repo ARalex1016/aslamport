@@ -54,13 +54,13 @@ const Hero = () => {
   return (
     <section
       id="hero"
-      className="w-screen h-screen bg-transparent flex flex-col sm:flex-row-reverse items-center gap-y-10 pt-menuHeight fixed top-0 z-10"
+      className="w-screen h-screen bg-transparent flex flex-col sm:flex-row-reverse items-center gap-y-12 pt-menuHeight fixed top-0 z-10"
       style={{
         paddingLeft: `calc(var(--sidePadding) * 2)`,
         paddingRight: `calc(var(--sidePadding) * 2)`,
       }}
     >
-      {isOpenAboutMe && <AboutMe close={closeAboutMe} />}
+      <AboutMe isOpenAboutMe={isOpenAboutMe} close={closeAboutMe} />
 
       {/* Image */}
       <ToolTip title={"Aslam"}>
@@ -84,7 +84,7 @@ const Hero = () => {
           alt="Image"
           loading="lazy"
           // srcset=""
-          className="size-56 sm:size-72 md:size-80 lg:size-96 rounded-full object-fill"
+          className="size-60 sm:size-64 md:size-80 lg:size-96 rounded-full object-fill"
         />
       </ToolTip>
 
@@ -93,19 +93,22 @@ const Hero = () => {
         variants={textVariants}
         initial="initial"
         animate="animate"
-        className="w-full text-white flex flex-col gap-y-1 sm:gap-y-2 md:gap-y-4"
+        className="w-full text-white flex flex-col gap-y-2 sm:gap-y-2 md:gap-y-4"
       >
-        <motion.p variants={textVariants} className="text-2xl">
+        <motion.p
+          variants={textVariants}
+          className="text-2xl lg:text-4xl xl:text-5xl"
+        >
           Hi It's <span className="text-secondary">Aslam</span>
         </motion.p>
 
-        <TypingEffect className="text-2xl sm:text-xl md:text-2xl" />
+        <TypingEffect className="text-2xl sm:text-xl md:text-2xl lg:text-4xl xl:text-5xl font-['Merriweather']" />
 
-        <motion.p variants={textVariants} className="text-white/50">
+        {/* <motion.p variants={textVariants} className="text-white/50">
           I help business owners and busy web developers to design & develop
           creative websites that fits their vision and attracts the visitors to
           stay for ever.
-        </motion.p>
+        </motion.p> */}
 
         {screenWidth <= 640 && <SocialMedia className="my-2" />}
 

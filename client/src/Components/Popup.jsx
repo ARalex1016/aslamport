@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { motion } from "framer-motion";
 
 export const PopUpFullScreen = ({ onClose, className, children }) => {
   useEffect(() => {
@@ -19,11 +20,26 @@ export const PopUpFullScreen = ({ onClose, className, children }) => {
   };
 
   return (
-    <div
+    <motion.div
+      variants={{
+        initial: {
+          opacity: 0,
+        },
+        animate: {
+          opacity: 1,
+        },
+      }}
+      initial="initial"
+      animate="animate"
+      exit="initial"
+      transition={{
+        duration: 0.5,
+        ease: "anticipate",
+      }}
       onClick={handleBackgroundClick}
-      className={`w-screen h-[100svh] bg-black/60 absolute z-20 inset-0 flex flex-row justify-center items-center py-menuHeight ${className}`}
+      className={`w-screen h-[100svh] bg-black/60 absolute z-20 inset-0 flex flex-row justify-center items-center pt-menuHeight pb-[calc(var(--menuHeight)/2)] ${className}`}
     >
       {children}
-    </div>
+    </motion.div>
   );
 };
