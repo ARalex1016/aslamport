@@ -11,11 +11,6 @@ import {
   Loader,
 } from "lucide-react";
 
-// Mui Icons
-import WhatsAppIcon from "@mui/icons-material/WhatsApp";
-import GitHubIcon from "@mui/icons-material/GitHub";
-import FacebookOutlinedIcon from "@mui/icons-material/FacebookOutlined";
-
 export const MenuIcon = ({ size = 24, className }) => {
   return <Menu size={size} className={`${className}`} />;
 };
@@ -50,17 +45,4 @@ export const SendIcon = ({ size = 24, className }) => {
 
 export const LoaderIcon = ({ size = 24, className }) => {
   return <Loader size={size} className={`${className}`} />;
-};
-
-// Mui
-export const WhatsAppIconMui = ({ className }) => {
-  return <WhatsAppIcon className={`${className}`} />;
-};
-
-export const GitHubIconMui = ({ className }) => {
-  return <GitHubIcon className={`${className}`} />;
-};
-
-export const FacebookOutlinedIconMui = ({ className }) => {
-  return <FacebookOutlinedIcon className={`${className}`} />;
 };

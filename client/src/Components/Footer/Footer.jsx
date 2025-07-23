@@ -21,16 +21,18 @@ const Footer = () => {
       ref={footerRef}
       variants={{
         initial: {
-          x: -300,
+          // x: -300,
+          opacity: 0,
         },
         animate: {
-          x: 0,
+          // x: 0,
+          opacity: 1,
         },
       }}
       initial="initial"
       animate={isInView ? "animate" : "initial"}
       transition={{
-        duration: 1,
+        duration: 0.5,
         ease: "linear",
       }}
       className="w-full flex flex-col justify-center items-center gap-y-2 pb-2"

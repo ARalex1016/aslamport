@@ -4,35 +4,35 @@ import { PopUpFullScreen } from "../Popup";
 
 // Components
 import { XIcon } from "./../Icons";
+import Image from "../Image";
 import { ToolTip } from "../TootTip";
 
 // Data
 import technologiesObj from "./../../data/technologies.json";
 
+// Utils
+import { getCapitalFirstLetter } from "../../Utils/StringManager";
+
 const mernData = [
   {
     name: "MongoDB",
-    title: "M",
     src: "Svgs/mongodb.svg",
-    color: "#47A248",
+    baseColor: "#47A248",
   },
   {
     name: "Express",
-    title: "E",
     src: "Svgs/express.svg",
-    color: "#ffff",
+    baseColor: "#ffff",
   },
   {
     name: "React Js",
-    title: "R",
     src: "Svgs/react.svg",
-    color: "#61DAFB",
+    baseColor: "#61DAFB",
   },
   {
     name: "Node Js",
-    title: "N",
     src: "Svgs/node.svg",
-    color: "#8CC84B",
+    baseColor: "#8CC84B",
   },
 ];
 
@@ -45,8 +45,8 @@ const MernLogoItem = ({ data }) => {
         className="size-8 md:size-10 lg:size-12 object-fill"
       />
 
-      <h2 style={{ color: data.color }} className="text-sm font-medium">
-        {data.title}
+      <h2 style={{ color: data.baseColor }} className="text-sm font-medium">
+        {getCapitalFirstLetter(data.name)}
       </h2>
     </>
   );
@@ -134,8 +134,8 @@ const AboutMe = ({ isOpenAboutMe, close, className, children }) => {
             </motion.button>
 
             {/* Image */}
-            <img
-              src="/Images/profile1.png"
+            <Image
+              src="/Images/profile2.png"
               alt="Profile"
               className="size-40 sm:size-52 md:size-60 lg:size-80 rounded-full object-fill"
             />

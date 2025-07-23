@@ -11,6 +11,7 @@ import "swiper/css/pagination";
 
 // Components
 import { ChevronLeftIcon, ChevronRightIcon } from "../Icons";
+import Image from "../Image";
 import { ToolTip } from "../TootTip";
 
 // Data
@@ -35,9 +36,11 @@ const Slides = ({ skills }) => {
           <div ref={ref} key={index} className="flex flex-col gap-y-[2px]">
             <ToolTip title={skill.name}>
               <div className="w-full flex flex-row justify-between items-center">
-                <p className="w-[12ch] text-xs text-nowrap">{skill.name}</p>
+                <p className="w-[12ch] text-white/80 text-xs text-nowrap">
+                  {skill.name}
+                </p>
 
-                <img
+                <Image
                   src={skill.icon}
                   alt={`${skill.name}-icon`}
                   className="size-8"
@@ -111,8 +114,8 @@ const Slider = ({ slides }) => {
           key={index}
           className="flex justify-center items-center px-10"
         >
-          <div className="w-full flex flex-col rounded-md">
-            <h3 className="text-secondary/60 text-xl font-medium">
+          <div className="w-full flex flex-col gap-y-2 rounded-md">
+            <h3 className="text-secondary/60 text-lg font-medium">
               {slide.category}
             </h3>
 

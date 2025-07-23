@@ -76,11 +76,11 @@ const Hero = () => {
           initial="initial"
           animate="animate"
           transition={{
-            // delay: 1,
-            duration: 0.4,
+            delay: 1,
+            duration: 0.5,
             ease: "easeIn",
           }}
-          src="/Images/profile2.png"
+          src="/Images/profile1.png"
           alt="Image"
           loading="lazy"
           // srcset=""
@@ -110,7 +110,7 @@ const Hero = () => {
           stay for ever.
         </motion.p> */}
 
-        {screenWidth <= 640 && <SocialMedia className="my-2" />}
+        {screenWidth < 640 && <SocialMedia className="my-2" />}
 
         {/* Action Buttons */}
         <motion.div variants={textVariants} className="flex flex-row gap-x-5">
@@ -127,9 +127,7 @@ const Hero = () => {
         </motion.div>
       </motion.div>
 
-      {screenWidth > 640 && (
-        <SocialMedia className="flex !flex-col gap-y-4 absolute right-4 top-1/2 -translate-y-1/2" />
-      )}
+      {screenWidth >= 640 && <SocialMedia />}
 
       {/* Scroll */}
       <motion.div
