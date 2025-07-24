@@ -122,8 +122,8 @@ const AboutMe = ({ isOpenAboutMe, close, className, children }) => {
             {/* X Button */}
             <motion.button
               onClick={close}
-              initial={{ rotate: 0 }}
-              whileHover={{ rotate: 180 }}
+              initial={{ scale: 1, rotate: 0 }}
+              whileHover={{ scale: 1.05, rotate: 180 }}
               transition={{
                 duration: 0.5,
                 ease: "anticipate",
