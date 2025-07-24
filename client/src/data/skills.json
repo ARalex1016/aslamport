@@ -6,22 +6,22 @@
         {
           "name": "HTML",
           "icon": "https://img.icons8.com/color/48/html-5.png",
-          "knowledgeLevel": 80
+          "knowledgeLevel": 85
         },
         {
           "name": "CSS",
           "icon": "https://img.icons8.com/color/48/css3.png",
-          "knowledgeLevel": 70
+          "knowledgeLevel": 85
         },
         {
           "name": "JavaScript",
           "icon": "https://img.icons8.com/color/48/javascript.png",
-          "knowledgeLevel": 75
+          "knowledgeLevel": 80
         },
         {
           "name": "React.js",
           "icon": "https://img.icons8.com/color/48/react-native.png",
-          "knowledgeLevel": 80
+          "knowledgeLevel": 75
         },
         {
           "name": "Tailwind CSS",
@@ -46,7 +46,7 @@
         {
           "name": "Express.js",
           "icon": "/Svgs/express.svg",
-          "knowledgeLevel": 75
+          "knowledgeLevel": 70
         },
         {
           "name": "MongoDB",
@@ -61,7 +61,7 @@
         {
           "name": "GitHub",
           "icon": "https://img.icons8.com/color/48/github.png",
-          "knowledgeLevel": 60
+          "knowledgeLevel": 70
         },
         {
           "name": "Figma",
@@ -81,17 +81,17 @@
         {
           "name": "SEO",
           "icon": "Images/seo.png",
-          "knowledgeLevel": 60
+          "knowledgeLevel": 70
         },
         {
           "name": "Web Performance",
           "icon": "https://img.icons8.com/color/48/speed.png",
-          "knowledgeLevel": 65
+          "knowledgeLevel": 70
         },
         {
           "name": "Web Accessibility",
           "icon": "/Images/web-accessibility.png",
-          "knowledgeLevel": 50
+          "knowledgeLevel": 65
         }
       ]
     }

@@ -1,5 +1,5 @@
 import { useState, useRef } from "react";
-import { animate, motion, useInView } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 
 // Components
 import { LoaderIcon } from "../Icons";
@@ -136,14 +136,27 @@ const Contact = () => {
           value={formData.message}
           onChange={handleChange}
           autoComplete="off"
-          rows="4"
-          className="border-[1px] border-white/70 outline-none rounded-sm px-2 py-1 transition-all duration-200 focus:border-secondary"
+          rows="5"
+          className="min-h-[7.5rem] max-h-[15rem] border-[1px] border-white/70 outline-none rounded-sm px-2 py-1 transition-all duration-200 focus:border-secondary"
         />
 
-        <button
+        <motion.button
+          initial={{
+            x: 0,
+            y: 0,
+          }}
+          whileHover={{
+            x: "1px",
+            y: "-2px",
+
+            transition: {
+              duration: 0.3,
+              ease: "easeInOut",
+            },
+          }}
           type="submit"
           disabled={sending}
-          className="h-8 text-sm text-white/70 font-medium bg-secondary/70 rounded-sm cursor-pointer disabled:bg-gray-700 disabled:cursor-not-allowed"
+          className="h-8 text-sm text-white font-medium bg-secondary/70 rounded-sm cursor-pointer disabled:bg-gray-700 disabled:cursor-not-allowed hover:shadow hover:shadow-white/40"
         >
           {sending ? (
             <LoaderIcon className="animate-spin  m-auto" />
@@ -152,7 +165,7 @@ const Contact = () => {
               <SendIcon size={18} /> Send Message
             </span>
           )}
-        </button>
+        </motion.button>
       </form>
     </motion.section>
   );

@@ -12,7 +12,7 @@
         "Framer-motion"
       ],
       "completionDate": "2025-5",
-      "summary": "This is a demo project that I built for this and that purposes with the help of displayed technologies This is a demo project that I built for this and that purposes with the help of displayed technologies This is a demo project that I built for this and that purposes with the help of displayed technologies",
+      "summary": "A full-stack job platform built with React, Node.js, Express, and MongoDB, designed to connect Nepalese job seekers living abroad with relevant opportunities. The app features user authentication, role-based access control (admin, employer, job seeker), and secure image/file uploads using Cloudinary. Developed a responsive UI, implemented efficient CRUD operations, and ensured data integrity across all roles.",
       "liveDemoUrl": "https://rojgaar-link.onrender.com/",
       "sourceCodeUrl": "",
       "features": [
@@ -29,7 +29,7 @@
       "thumbnail": "/Images/fetch-tube.png",
       "technologies": ["React js", "Tailwindcss"],
       "completionDate": "2024-8",
-      "summary": "This is a demo project that I built for this and that purposes with the help of displayed technologies This is a demo project that I built for this and that purposes with the help of displayed technologies This is a demo project that I built for this and that purposes with the help of displayed technologies",
+      "summary": "A frontend-only web app built with React that allows users to download YouTube videos or Shorts in MP4 or MP3 formats across various resolutions. Users simply input a YouTube link, and the app fetches downloadable links using a free third-party API. No backend was used; all functionality is handled on the client side.",
       "liveDemoUrl": "https://fetchtube.netlify.app/",
       "sourceCodeUrl": "",
       "features": [

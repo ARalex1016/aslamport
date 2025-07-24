@@ -15,7 +15,9 @@ const Project = () => {
 
   return (
     <section id="projects" className="w-full">
-      <h2 className="text-2xl text-white text-center mb-2">Projects</h2>
+      <h2 className="text-2xl text-white text-center mb-2">
+        Featured Projects
+      </h2>
 
       {/* Project Container */}
       <div className="w-full flex flex-row flex-wrap justify-around items-center gap-5">
