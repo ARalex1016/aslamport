@@ -58,11 +58,13 @@ const Project = () => {
                 className="rounded-xl flex flex-col justify-center items-center gap-y-2"
               >
                 {/* Thumbnail */}
-                <img
-                  src={project.thumbnail}
-                  alt={`${project.title}-image`}
-                  className="rounded-inherit w-full aspect-video bg-white/40 object-contain"
-                />
+                <div className="group rounded-inherit overflow-hidden">
+                  <img
+                    src={project.thumbnail}
+                    alt={`${project.title}-image`}
+                    className="rounded-inherit w-full aspect-video bg-white/40 object-contain group-hover:scale-150 group-hover:rotate-6 transition-all duration-500"
+                  />
+                </div>
 
                 {/* Title */}
                 <p className="text-white/60 text-xl font-medium text-left w-full line-clamp-1">
