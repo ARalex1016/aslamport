@@ -35,11 +35,13 @@ const Project = () => {
               key={index}
               variants={{
                 initial: {
-                  x: -300,
+                  // x: -300,
+                  y: 80,
                   opacity: 0,
                 },
                 animate: {
-                  x: 0,
+                  // x: 0,
+                  y: 0,
                   opacity: 1,
                 },
               }}
