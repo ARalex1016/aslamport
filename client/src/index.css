@@ -3,6 +3,7 @@
 :root {
   /* Colors */
   --primary: 0, 0, 0;
+  /* --secondary: 0, 188, 251; */
   --secondary: 0, 188, 251;
   --gray: 21, 21, 21;
 
@@ -96,7 +97,6 @@ body {
 .logo-hover:hover img.hover-img {
   opacity: 1;
 }
-
 /* Logo End */
 
 @media (width >= 640px) {

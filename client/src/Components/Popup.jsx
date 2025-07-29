@@ -37,7 +37,7 @@ export const PopUpFullScreen = ({ onClose, className, children }) => {
         ease: "anticipate",
       }}
       onClick={handleBackgroundClick}
-      className={`w-screen h-[100svh] bg-black/60 absolute z-20 inset-0 flex flex-row justify-center items-center pt-menuHeight pb-[calc(var(--menuHeight)/2)] ${className}`}
+      className={`w-screen h-[100svh] bg-black/60 absolute z-20 inset-0 flex flex-row justify-center items-center pb-[calc(var(--menuHeight)/2)] ${className}`}
     >
       {children}
     </motion.div>

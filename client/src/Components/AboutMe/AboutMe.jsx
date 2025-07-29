@@ -92,7 +92,10 @@ const AboutMe = ({ isOpenAboutMe, close, className, children }) => {
   return (
     <AnimatePresence>
       {isOpenAboutMe && (
-        <PopUpFullScreen onClose={close}>
+        <PopUpFullScreen
+          onClose={close}
+          className={`!pt-[calc(var(--menuHeight)_+_4px)]`}
+        >
           <motion.section
             variants={{
               initial: {
@@ -114,7 +117,7 @@ const AboutMe = ({ isOpenAboutMe, close, className, children }) => {
               duration: 0.5,
               ease: "anticipate",
             }}
-            className="bg-gray rounded-md relative shadow-md shadow-gray overflow-hidden flex flex-col sm:flex-row-reverse gap-x-2 md:gap-x-4 lg:gap-x-6 gap-y-6 justify-center items-center px-5 py-4 sm:px-12 sm:py-6"
+            className={`bg-gray rounded-md relative shadow-md shadow-gray flex flex-col sm:flex-row-reverse gap-x-2 md:gap-x-4 lg:gap-x-6 gap-y-6 justify-center items-center px-5 py-4 sm:px-12 sm:py-6`}
             style={{
               width: "calc(100vw - 2 * var(--sidePadding))",
             }}

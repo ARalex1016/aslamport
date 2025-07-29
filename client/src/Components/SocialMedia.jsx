@@ -46,7 +46,9 @@ const SocialMedia = ({ className }) => {
                 onMouseLeave={() => setHoverIndex(null)}
                 className="group size-7 rounded-full grid place-items-center"
                 style={{
-                  backgroundColor: isHovered ? baseColor : "white",
+                  backgroundColor: isHovered
+                    ? baseColor
+                    : "rgba(255, 255, 255, 0.8)",
                 }}
               >
                 <Icon className="size-5 group-hover:fill-white" />
