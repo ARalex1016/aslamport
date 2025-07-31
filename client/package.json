@@ -17,10 +17,14 @@
     "@emotion/styled": "^11.14.1",
     "@mui/icons-material": "^7.1.2",
     "@mui/material": "^7.1.2",
+    "@react-three/drei": "^10.6.1",
+    "@react-three/fiber": "^9.3.0",
+    "@react-three/postprocessing": "^3.0.4",
     "@tailwindcss/vite": "^4.1.11",
     "axios": "^1.10.0",
     "framer-motion": "^12.19.2",
     "lucide-react": "^0.525.0",
+    "postprocessing": "^6.37.6",
     "react": "^19.1.0",
     "react-countup": "^6.5.3",
     "react-dom": "^19.1.0",
@@ -28,7 +32,8 @@
     "react-typed": "^2.0.12",
     "sweetalert2": "^11.22.1",
     "swiper": "^11.2.10",
-    "tailwindcss": "^4.1.11"
+    "tailwindcss": "^4.1.11",
+    "three": "^0.178.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.29.0",

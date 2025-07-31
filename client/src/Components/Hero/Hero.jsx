@@ -6,6 +6,7 @@ import SocialMedia from "../SocialMedia";
 import { NavLink } from "../Header/Navbar";
 import { ToolTip } from "../TootTip";
 import AboutMe from "../AboutMe/AboutMe";
+import { Bubble3D } from "../Shape3D";
 
 // Hooks
 import { useScreenWidth } from "../../Hooks/useScreenWidth";
@@ -62,31 +63,38 @@ const Hero = () => {
     >
       <AboutMe isOpenAboutMe={isOpenAboutMe} close={closeAboutMe} />
 
-      {/* Image */}
-      <ToolTip title={"Aslam"}>
-        <motion.img
-          variants={{
-            initial: {
-              opacity: 0,
-            },
-            animate: {
-              opacity: 1,
-            },
-          }}
-          initial="initial"
-          animate="animate"
-          transition={{
-            // delay: 1,
-            duration: 0.5,
-            ease: "easeIn",
-          }}
-          src="/Images/profile1.png"
-          alt="Image"
-          loading="lazy"
-          // srcset=""
-          className="size-60 sm:size-64 md:size-80 lg:size-96 rounded-full object-fill"
-        />
-      </ToolTip>
+      <div className="relative size-60 sm:size-64 md:size-80 lg:size-96 aspect-square">
+        {/* Bubble 3D */}
+        <div className="absolute inset-0 -z-10">
+          <Bubble3D />
+        </div>
+
+        {/* Image */}
+        <ToolTip title={"Aslam"}>
+          <motion.img
+            variants={{
+              initial: {
+                opacity: 0,
+              },
+              animate: {
+                opacity: 1,
+              },
+            }}
+            initial="initial"
+            animate="animate"
+            transition={{
+              // delay: 1,
+              duration: 0.5,
+              ease: "easeIn",
+            }}
+            src="/Images/profile1.png"
+            alt="Image"
+            loading="lazy"
+            // srcset=""
+            className="size-full rounded-full object-fill"
+          />
+        </ToolTip>
+      </div>
 
       {/* Text */}
       <motion.div

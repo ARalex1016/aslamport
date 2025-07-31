@@ -3,8 +3,7 @@
 :root {
   /* Colors */
   --primary: 0, 0, 0;
-  /* --secondary: 0, 188, 251; */
-  --secondary: 0, 188, 251;
+  --secondary: 0, 188, 251; /* #00BCFB */
   --gray: 21, 21, 21;
 
   /* Spacing */
