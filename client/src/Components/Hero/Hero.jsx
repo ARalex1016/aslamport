@@ -65,7 +65,7 @@ const Hero = () => {
 
       <div className="relative size-60 sm:size-64 md:size-80 lg:size-96 aspect-square">
         {/* Bubble 3D */}
-        <div className="absolute inset-0 -z-10">
+        <div className="absolute inset-0 -z-10 bg-primary">
           <Bubble3D />
         </div>
 
@@ -74,7 +74,7 @@ const Hero = () => {
           <motion.img
             variants={{
               initial: {
-                opacity: 0,
+                opacity: 0.5,
               },
               animate: {
                 opacity: 1,
@@ -83,7 +83,7 @@ const Hero = () => {
             initial="initial"
             animate="animate"
             transition={{
-              // delay: 1,
+              // delay: 0.5,
               duration: 0.5,
               ease: "easeIn",
             }}
@@ -105,12 +105,12 @@ const Hero = () => {
       >
         <motion.p
           variants={textVariants}
-          className="text-2xl lg:text-4xl xl:text-5xl"
+          className="text-xl md:text-2xl lg:text-4xl xl:text-5xl font-merriweather"
         >
           Hi It's <span className="text-secondary">Aslam</span>
         </motion.p>
 
-        <TypingEffect className="text-2xl sm:text-xl md:text-2xl lg:text-4xl xl:text-5xl font-['Merriweather']" />
+        <TypingEffect className="text-xl md:text-2xl lg:text-4xl xl:text-5xl font-merriweather" />
 
         {/* <motion.p variants={textVariants} className="text-white/50">
           I help business owners and busy web developers to design & develop
@@ -118,7 +118,7 @@ const Hero = () => {
           stay for ever.
         </motion.p> */}
 
-        {screenWidth < 640 && <SocialMedia className="my-2" />}
+        <SocialMedia className="my-2 sm:invisible" />
 
         {/* Action Buttons */}
         <motion.div variants={textVariants} className="flex flex-row gap-x-5">
@@ -135,7 +135,7 @@ const Hero = () => {
         </motion.div>
       </motion.div>
 
-      {screenWidth >= 640 && <SocialMedia />}
+      <SocialMedia className="invisible sm:visible" />
 
       {/* Scroll */}
       <motion.div

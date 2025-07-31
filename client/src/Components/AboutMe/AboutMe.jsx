@@ -39,15 +39,19 @@ const mernData = [
 const MernLogoItem = ({ data }) => {
   return (
     <>
-      <img
-        src={data.src}
-        alt={data.name}
-        className="size-8 md:size-10 lg:size-12 object-fill"
-      />
+      <ToolTip title={data.name}>
+        <div className="flex flex-col items-center gap-y-2">
+          <img
+            src={data.src}
+            alt={data.name}
+            className="size-8 md:size-10 lg:size-12 object-fill"
+          />
 
-      <h2 style={{ color: data.baseColor }} className="text-sm font-medium">
-        {getCapitalFirstLetter(data.name)}
-      </h2>
+          <h2 style={{ color: data.baseColor }} className="text-sm font-medium">
+            {getCapitalFirstLetter(data.name)}
+          </h2>
+        </div>
+      </ToolTip>
     </>
   );
 };
@@ -57,10 +61,8 @@ const MernLogo = () => {
     <div className="sm:w-full flex flex-row gap-x-5">
       {mernData.map((data, index) => {
         return (
-          <div key={index} className="flex flex-col items-center gap-y-2">
-            <ToolTip title={data.name}>
-              <MernLogoItem data={data} />
-            </ToolTip>
+          <div key={index}>
+            <MernLogoItem data={data} />
           </div>
         );
       })}
@@ -94,7 +96,7 @@ const AboutMe = ({ isOpenAboutMe, close, className, children }) => {
       {isOpenAboutMe && (
         <PopUpFullScreen
           onClose={close}
-          className={`!pt-[calc(var(--menuHeight)_+_4px)]`}
+          className={`!pt-[calc(var(--menuHeight)_+_4px)] ${className}`}
         >
           <motion.section
             variants={{
@@ -106,18 +108,18 @@ const AboutMe = ({ isOpenAboutMe, close, className, children }) => {
                 height: "100%",
                 opacity: 1,
               },
-              exit: {
-                opacity: 0,
-              },
+              // exit: {
+              //   opacity: 0,
+              // },
             }}
             initial="initial"
             animate="animate"
             exit="initial"
             transition={{
               duration: 0.5,
-              ease: "anticipate",
+              ease: "easeInOut",
             }}
-            className={`bg-gray rounded-md relative shadow-md shadow-gray flex flex-col sm:flex-row-reverse gap-x-2 md:gap-x-4 lg:gap-x-6 gap-y-6 justify-center items-center px-5 py-4 sm:px-12 sm:py-6`}
+            className={`bg-gray rounded-md relative shadow-md shadow-gray flex flex-col sm:flex-row-reverse gap-x-2 md:gap-x-4 lg:gap-x-6 gap-y-6 justify-center items-center overflow-hidden px-5 py-4 sm:px-12 sm:py-6`}
             style={{
               width: "calc(100vw - 2 * var(--sidePadding))",
             }}
@@ -149,7 +151,7 @@ const AboutMe = ({ isOpenAboutMe, close, className, children }) => {
               <InnerContainer>
                 <Title>ABOUT ME</Title>
 
-                <p className="text-white/60 text-xs sm:text-base line-clamp-4 md:line-clamp-6">
+                <p className="text-white/75 text-xs sm:text-base line-clamp-4 md:line-clamp-6">
                   Hi, I’m Aslam — a self-driven full-stack web developer with a
                   strong focus on React and Node.js. I love turning ideas into
                   functional, user-friendly websites that solve real problems.
@@ -160,13 +162,12 @@ const AboutMe = ({ isOpenAboutMe, close, className, children }) => {
                 </p>
 
                 {/* Technologies */}
-
                 <div className="flex flex-row flex-wrap gap-2">
                   {technologiesObj.technologies.map((technology, index) => {
                     return (
                       <div
                         key={index}
-                        className="text-white/80 text-xs border-[1px] border-white/20 rounded-xl px-2 py-[2px]"
+                        className="text-white/65 text-xs border-[1px] border-white/20 rounded-xl px-2 py-[1px] hover:text-primary hover:bg-secondary transition-all duration-300"
                       >
                         #{technology.name}
                       </div>
@@ -177,7 +178,7 @@ const AboutMe = ({ isOpenAboutMe, close, className, children }) => {
 
               {/* MERN STACK */}
               <InnerContainer>
-                <Title className="font-['Merriweather']">MERN STACK</Title>
+                <Title className="font-merriweather">MERN STACK</Title>
 
                 <MernLogo />
               </InnerContainer>

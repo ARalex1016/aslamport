@@ -152,13 +152,13 @@ const Contact = () => {
             y: "-2px",
 
             transition: {
-              duration: 0.3,
+              duration: 0.2,
               ease: "easeInOut",
             },
           }}
           type="submit"
           disabled={sending}
-          className="h-8 text-sm text-white font-medium bg-secondary/70 rounded-sm cursor-pointer disabled:bg-gray-700 disabled:cursor-not-allowed hover:shadow hover:shadow-white/40"
+          className="h-8 text-sm text-white font-medium bg-secondary/70 rounded-sm cursor-pointer disabled:bg-gray-700 disabled:cursor-not-allowed hover:shadow hover:shadow-white/20"
         >
           {sending ? (
             <LoaderIcon className="animate-spin  m-auto" />
