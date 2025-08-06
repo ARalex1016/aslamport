@@ -63,6 +63,7 @@ const Hero = () => {
     >
       <AboutMe isOpenAboutMe={isOpenAboutMe} close={closeAboutMe} />
 
+      {/* Image Container */}
       <motion.div
         variants={{
           initial: {
@@ -75,7 +76,7 @@ const Hero = () => {
         initial="initial"
         animate="animate"
         transition={{
-          delay: 0.5,
+          delay: 1,
           duration: 0.5,
           ease: "easeIn",
         }}
@@ -139,7 +140,7 @@ const Hero = () => {
         variants={{
           initial: {
             opacity: 0,
-            x: 50,
+            x: 100,
           },
           animate: {
             opacity: 1,
@@ -149,7 +150,7 @@ const Hero = () => {
         initial="initial"
         animate="animate"
         transition={{
-          delay: 1,
+          delay: 1.5,
           type: "spring",
           stiffness: 100,
           damping: 8,

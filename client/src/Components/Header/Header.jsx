@@ -1,3 +1,5 @@
+import { motion } from "framer-motion";
+
 // Components
 import { DesktopNavbar, MobileNavbar } from "./Navbar";
 import { MenuIcon, XIcon } from "../Icons";
@@ -25,7 +27,19 @@ const Header = () => {
 
   return (
     <>
-      <header className="w-full h-menuHeight bg-primary/40 backdrop-blur-sm flex justify-between items-center px-sidePadding fixed top-0 z-50">
+      <motion.header
+        variants={{
+          initial: { opacity: 0, y: -50 },
+          animate: { opacity: 1, y: 0 },
+        }}
+        initial="initial"
+        animate="animate"
+        transition={{
+          delay: 1,
+          duration: 0.5,
+        }}
+        className="w-full h-menuHeight bg-primary/40 backdrop-blur-sm flex justify-between items-center px-sidePadding fixed top-0 z-50"
+      >
         {/* Logo */}
         <ToolTip title={"Aslam"}>
           <div onClick={backToTop} className="logo-hover">
@@ -54,7 +68,7 @@ const Header = () => {
               <MenuIcon className="text-secondary" />
             </IconContainer>
           ))}
-      </header>
+      </motion.header>
 
       <MobileNavbar menuIsOpen={menuIsOpen} closeMenu={closeMenu} />
     </>
