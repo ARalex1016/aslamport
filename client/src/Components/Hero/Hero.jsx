@@ -7,19 +7,20 @@ import { NavLink } from "../Header/Navbar";
 import { ToolTip } from "../TootTip";
 import AboutMe from "../AboutMe/AboutMe";
 import { Bubble3D } from "../Shape3D";
+import { Blob } from "../Blob";
 
-// Hooks
-import { useScreenWidth } from "../../Hooks/useScreenWidth";
-import { useAboutMeToggle } from "../../Hooks/useAboutMeToggle";
+// Store
+import useAboutMeStore from "../../Store/UseAboutMeStore";
 
 // Icons
 import { ArrowDownIcon } from "../Icons";
+import { duration } from "@mui/material/styles";
 
 const Button = ({ onClick, children, className }) => {
   return (
     <button
       onClick={onClick}
-      className={`sm:text-sm md:text-base font-medium text-nowrap rounded-md px-3 py-1 border-2 border-secondary transition-all duration-300 ${className}`}
+      className={`sm:text-sm md:text-base text-primary font-medium text-nowrap bg-secondary rounded-md px-3 py-1 hoverBtn ${className}`}
     >
       {children}
     </button>
@@ -49,8 +50,7 @@ const handleScrollClick = () => {
 };
 
 const Hero = () => {
-  const { screenWidth } = useScreenWidth();
-  const { isOpenAboutMe, openAboutMe, closeAboutMe } = useAboutMeToggle();
+  const { isOpenAboutMe, openAboutMe, closeAboutMe } = useAboutMeStore();
 
   return (
     <section
@@ -63,30 +63,35 @@ const Hero = () => {
     >
       <AboutMe isOpenAboutMe={isOpenAboutMe} close={closeAboutMe} />
 
-      <div className="relative size-60 sm:size-64 md:size-80 lg:size-96 aspect-square">
-        {/* Bubble 3D */}
+      <motion.div
+        variants={{
+          initial: {
+            opacity: 0,
+          },
+          animate: {
+            opacity: 1,
+          },
+        }}
+        initial="initial"
+        animate="animate"
+        transition={{
+          delay: 0.5,
+          duration: 0.5,
+          ease: "easeIn",
+        }}
+        className="relative size-60 sm:size-64 md:size-80 lg:size-96 aspect-square"
+      >
         <div className="absolute inset-0 -z-10 bg-primary">
+          {/* Bubble 3D */}
           <Bubble3D />
+
+          {/* Blob */}
+          {/* <Blob /> */}
         </div>
 
         {/* Image */}
         <ToolTip title={"Aslam"}>
-          <motion.img
-            variants={{
-              initial: {
-                opacity: 0.5,
-              },
-              animate: {
-                opacity: 1,
-              },
-            }}
-            initial="initial"
-            animate="animate"
-            transition={{
-              // delay: 0.5,
-              duration: 0.5,
-              ease: "easeIn",
-            }}
+          <img
             src="/Images/profile1.png"
             alt="Image"
             loading="lazy"
@@ -94,7 +99,7 @@ const Hero = () => {
             className="size-full rounded-full object-fill"
           />
         </ToolTip>
-      </div>
+      </motion.div>
 
       {/* Text */}
       <motion.div
@@ -118,24 +123,41 @@ const Hero = () => {
           stay for ever.
         </motion.p> */}
 
-        <SocialMedia className="my-2 sm:invisible" />
-
         {/* Action Buttons */}
         <motion.div variants={textVariants} className="flex flex-row gap-x-5">
-          <Button
-            onClick={openAboutMe}
-            className="text-primary bg-secondary hover:text-secondary hover:bg-primary"
-          >
-            About Me
-          </Button>
+          <Button onClick={openAboutMe}>About Me</Button>
 
-          <Button className="text-secondary hover:text-primary hover:bg-secondary">
+          <Button>
             <NavLink sectionId={"contact"}>Contact Me</NavLink>
           </Button>
         </motion.div>
+
+        <SocialMedia className="my-2 sm:invisible mt-10" />
       </motion.div>
 
-      <SocialMedia className="invisible sm:visible" />
+      <motion.div
+        variants={{
+          initial: {
+            opacity: 0,
+            x: 50,
+          },
+          animate: {
+            opacity: 1,
+            x: 0,
+          },
+        }}
+        initial="initial"
+        animate="animate"
+        transition={{
+          delay: 1,
+          type: "spring",
+          stiffness: 100,
+          damping: 8,
+        }}
+        className="invisible sm:visible sm:absolute sm:right-4 sm:top-1/2 sm:-translate-y-1/2"
+      >
+        <SocialMedia />
+      </motion.div>
 
       {/* Scroll */}
       <motion.div

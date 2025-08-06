@@ -109,6 +109,48 @@ body {
 }
 /* Logo End */
 
+/* Hover Button Start */
+
+.hoverBtn {
+  position: relative;
+  overflow: hidden;
+  box-shadow: 1px 1px 4px rgba(var(--secondary)),
+    -1px -1px 4px rgba(var(--secondary));
+  transition: color 0.4s ease;
+  z-index: 1;
+}
+
+.hoverBtn:hover {
+  color: rgb(var(--secondary));
+}
+
+.hoverBtn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background-color: rgb(var(--primary));
+  transition: width 0.4s ease;
+  z-index: -1;
+}
+
+.hoverBtn:hover::before {
+  width: 100%;
+}
+
+/* Hover Button End */
+
+/* Social Icons Start */
+
+.social-icons {
+  box-shadow: 1px 1px 4px rgba(var(--secondary)),
+    -1px -1px 4px rgba(var(--secondary));
+}
+
+/* Social Icons End */
+
 @media (width >= 640px) {
   :root {
     --sidePadding: 40px;

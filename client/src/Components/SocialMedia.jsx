@@ -31,7 +31,7 @@ const SocialMedia = ({ className }) => {
 
   return (
     <div
-      className={`flex flex-row gap-x-2 sm:flex-col sm:gap-y-4 sm:absolute sm:right-4 sm:top-1/2 sm:-translate-y-1/2 ${className}`}
+      className={`flex flex-row gap-x-2 sm:flex-col sm:gap-y-4 ${className}`}
     >
       {socialPlatforms.map(({ name, link, baseColor, Icon }, index) => {
         const isHovered = hoverIndex === index;
@@ -44,14 +44,14 @@ const SocialMedia = ({ className }) => {
                 target="_blank"
                 onMouseEnter={() => setHoverIndex(index)}
                 onMouseLeave={() => setHoverIndex(null)}
-                className="group size-7 rounded-full grid place-items-center"
+                className="group size-8 sm:size-9 rounded-xs grid place-items-center social-icons transition-all duration-300"
                 style={{
                   backgroundColor: isHovered
                     ? baseColor
-                    : "rgba(255, 255, 255, 0.8)",
+                    : "rgb(var(--primary))",
                 }}
               >
-                <Icon className="size-5 group-hover:fill-white" />
+                <Icon className="size-5 fill-secondary group-hover:fill-white transition-all duration-300" />
               </a>
             </ToolTip>
           </div>
