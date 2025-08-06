@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 
 // Components
@@ -8,13 +9,13 @@ import { ToolTip } from "../TootTip";
 import AboutMe from "../AboutMe/AboutMe";
 import { Bubble3D } from "../Shape3D";
 import { Blob } from "../Blob";
+import ScrollIndicator from "../ScrollIndicator";
 
 // Store
 import useAboutMeStore from "../../Store/UseAboutMeStore";
 
 // Icons
 import { ArrowDownIcon } from "../Icons";
-import { duration } from "@mui/material/styles";
 
 const Button = ({ onClick, children, className }) => {
   return (
@@ -51,6 +52,8 @@ const handleScrollClick = () => {
 
 const Hero = () => {
   const { isOpenAboutMe, openAboutMe, closeAboutMe } = useAboutMeStore();
+
+  const [isScrollBouncing, setIsScrollBouncing] = useState(false);
 
   return (
     <section
@@ -161,29 +164,41 @@ const Hero = () => {
       </motion.div>
 
       {/* Scroll */}
-      <motion.div
+      {/* <motion.div
         onClick={handleScrollClick}
         variants={{
           initial: {
-            y: 0,
+            y: 50,
+            opacity: 0,
+            scale: 0,
           },
-          final: {
-            y: 10,
+          animate: {
+            y: 0,
+            opacity: 1,
+            scale: 1,
           },
         }}
         initial="initial"
-        animate="final"
+        animate="animate"
         transition={{
-          duration: 1,
+          delay: 2,
+          type: "spring",
+          stiffness: 100,
+          damping: 10,
         }}
-        className="text-white absolute top-[100svh] right-1/2 translate-x-1/2 flex flex-col justify-center items-center animate-bounce"
+        onAnimationComplete={() => setIsScrollBouncing(true)}
+        className={`text-white absolute top-[100svh] right-1/2 translate-x-1/2 flex flex-col justify-center items-center cursor-pointer ${
+          isScrollBouncing && "animate-bounce"
+        }`}
         style={{
           top: `calc(100svh - 36px)`,
         }}
       >
         <span className="text-xs ">Scroll</span>
         <ArrowDownIcon size={16} />
-      </motion.div>
+      </motion.div> */}
+
+      <ScrollIndicator />
     </section>
   );
 };
