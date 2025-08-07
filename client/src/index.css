@@ -151,6 +151,36 @@ body {
 
 /* Social Icons End */
 
+/* Solar System Starts */
+
+.orbit {
+  animation: spinClockwise 20s linear infinite;
+}
+
+.orbit-reverse {
+  animation: spinCounterClockwise 30s linear infinite;
+}
+
+@keyframes spinClockwise {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+@keyframes spinCounterClockwise {
+  from {
+    transform: rotate(-360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+/* Solar System Ends */
+
 @media (width >= 640px) {
   :root {
     --sidePadding: 40px;

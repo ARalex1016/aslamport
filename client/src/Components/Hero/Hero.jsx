@@ -8,6 +8,7 @@ import { ToolTip } from "../TootTip";
 import AboutMe from "../AboutMe/AboutMe";
 import { Bubble3D } from "../Shape3D";
 import ScrollIndicator from "../ScrollIndicator";
+import { SolarSystem } from "../SolarSystem";
 
 // Store
 import useAboutMeStore from "../../Store/UseAboutMeStore";
@@ -72,14 +73,9 @@ const Hero = () => {
         className="relative size-60 sm:size-64 md:size-80 lg:size-96 aspect-square"
       >
         <div className="absolute inset-0 -z-10 bg-primary">
-          {/* Bubble 3D */}
           <Bubble3D />
-
-          {/* Blob */}
-          {/* <Blob /> */}
         </div>
 
-        {/* Image */}
         <ToolTip title={"Aslam"}>
           <img
             src="/Images/profile1.png"
@@ -90,6 +86,8 @@ const Hero = () => {
           />
         </ToolTip>
       </motion.div>
+
+      <SolarSystem />
 
       {/* Text */}
       <motion.div
