@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { motion } from "framer-motion";
 
 // Components
@@ -8,14 +7,10 @@ import { NavLink } from "../Header/Navbar";
 import { ToolTip } from "../TootTip";
 import AboutMe from "../AboutMe/AboutMe";
 import { Bubble3D } from "../Shape3D";
-import { Blob } from "../Blob";
 import ScrollIndicator from "../ScrollIndicator";
 
 // Store
 import useAboutMeStore from "../../Store/UseAboutMeStore";
-
-// Icons
-import { ArrowDownIcon } from "../Icons";
 
 const Button = ({ onClick, children, className }) => {
   return (
@@ -43,17 +38,8 @@ const textVariants = {
   },
 };
 
-const handleScrollClick = () => {
-  window.scrollTo({
-    top: window.innerHeight - 60,
-    behavior: "smooth",
-  });
-};
-
 const Hero = () => {
   const { isOpenAboutMe, openAboutMe, closeAboutMe } = useAboutMeStore();
-
-  const [isScrollBouncing, setIsScrollBouncing] = useState(false);
 
   return (
     <section

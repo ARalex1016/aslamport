@@ -2,8 +2,21 @@ import { motion, useAnimation } from "framer-motion";
 import { useEffect } from "react";
 import { ArrowDownIcon } from "lucide-react";
 
-export default function ScrollIndicator({ handleScrollClick }) {
+export default function ScrollIndicator() {
   const controls = useAnimation();
+
+  const handleScrollClick = () => {
+    const rootStyles = getComputedStyle(document.documentElement);
+    const menuHeightStr = rootStyles.getPropertyValue("--menuHeight").trim();
+
+    // Convert to number of pixels
+    const menuHeight = parseInt(menuHeightStr.replace("px", ""), 10) || 0;
+
+    window.scrollTo({
+      top: window.innerHeight - menuHeight,
+      behavior: "smooth",
+    });
+  };
 
   useEffect(() => {
     const startBounce = async () => {
