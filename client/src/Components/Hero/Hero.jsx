@@ -70,9 +70,9 @@ const Hero = () => {
           duration: 0.5,
           ease: "easeIn",
         }}
-        className="relative size-60 sm:size-64 md:size-80 lg:size-96 aspect-square"
+        className="relative bg-transparent size-60 sm:size-64 md:size-80 lg:size-96 aspect-square"
       >
-        <div className="absolute inset-0 -z-10 bg-primary">
+        <div className="absolute inset-0 -z-10 bg-transparent">
           <Bubble3D />
         </div>
 

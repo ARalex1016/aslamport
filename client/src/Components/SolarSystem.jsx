@@ -1,24 +1,28 @@
 import { useRef, useState, useEffect } from "react";
-import { animate, motion } from "framer-motion";
-import { init } from "@emailjs/browser";
+import { motion } from "framer-motion";
+
+// Hooks
+import { useBreakpoint } from "../Hooks/useBreakpoint";
 
 const outerOrbitIcons = [
-  "https://img.icons8.com/color/48/html-5.png",
-  "https://img.icons8.com/color/48/css3.png",
-  "https://img.icons8.com/color/48/javascript.png",
-  "https://img.icons8.com/color/48/react-native.png",
-  "https://icon.icepanel.io/Technology/svg/Tailwind-CSS.svg",
-  "/Images/framer-motion.png",
-  "https://img.icons8.com/color/48/mongodb.png",
+  ["html", "https://img.icons8.com/color/48/html-5.png"],
+  ["css", "https://img.icons8.com/color/48/css3.png"],
+  ["javascript", "https://img.icons8.com/color/48/javascript.png"],
+  ["react", "https://img.icons8.com/color/48/react-native.png"],
+  ["tailwind", "https://icon.icepanel.io/Technology/svg/Tailwind-CSS.svg"],
+  ["framer-motion", "/Images/framer-motion.png"],
+  ["mongodb", "https://img.icons8.com/color/48/mongodb.png"],
 ];
 
 const innerOrbitIcons = [
-  "https://img.icons8.com/color/48/github.png",
-  "https://img.icons8.com/color/48/figma.png",
+  ["github", "https://img.icons8.com/color/48/github.png"],
+  ["figma", "https://img.icons8.com/color/48/figma.png"],
 ];
 
 const Orbit = ({ icons, className }) => {
   const orbitRef = useRef(null);
+  const { breakpoint } = useBreakpoint();
+
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
 
   useEffect(() => {
@@ -42,17 +46,24 @@ const Orbit = ({ icons, className }) => {
 
   const radius = width / 2; // Assuming width === height
   const center = radius;
-  const iconSize = 24; // px
+  const iconSize = {
+    xs: 24,
+    sm: 32,
+    md: 40,
+    lg: 48,
+    xl: 56,
+    "2xl": 64,
+  }[breakpoint];
 
   return (
     <div
       ref={orbitRef}
-      className={`border-2 border-secondary/50 border-dashed rounded-full aspect-square absolute ${className}`}
+      className={`aspect-square border-2 border-secondary/50 border-dashed rounded-full absolute ${className}`}
     >
       {icons &&
         icons.length > 0 &&
         width &&
-        icons.map((iconSrc, index) => {
+        icons.map(([name, iconSrc], index) => {
           const total = icons.length;
           const angleInRadians = (index / total) * 2 * Math.PI;
 
@@ -70,7 +81,7 @@ const Orbit = ({ icons, className }) => {
                 height: iconSize,
               }}
             >
-              <img src={iconSrc} alt="" className={`size-[${iconSize}]`} />
+              <img src={iconSrc} alt={name} className={`size-[${iconSize}]`} />
             </div>
           );
         })}
@@ -111,7 +122,7 @@ export const SolarSystem = ({ children }) => {
         {
           <Orbit
             icons={outerOrbitIcons}
-            className="w-[500px] sm:w-[700px] md:w-[800px] lg:w-[900px] aspect-square orbit"
+            className="w-[500px] sm:w-[700px] md:w-[800px] lg:w-[900px] orbit"
           />
         }
 
@@ -119,13 +130,11 @@ export const SolarSystem = ({ children }) => {
         {
           <Orbit
             icons={innerOrbitIcons}
-            className="w-[350px] sm:w-[500px] md:w-[600px] lg:w-[650px] aspect-square orbit-reverse"
+            className="w-[350px] sm:w-[500px] md:w-[600px] lg:w-[650px] orbit-reverse"
           />
         }
 
-        {
-          <Orbit className="w-[200px] sm:w-[300px] md:w-[400px] aspect-square orbit" />
-        }
+        {<Orbit className="w-[200px] sm:w-[300px] md:w-[400px] orbit" />}
       </div>
     </motion.div>
   );

@@ -25,7 +25,7 @@ function App() {
                 <Background>
                   <Skill />
                   <Project />
-                  <Services />
+                  {/* <Services /> */}
                   <Contact />
                   <Footer />
                 </Background>

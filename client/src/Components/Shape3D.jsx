@@ -5,7 +5,6 @@ import { Sphere, MeshDistortMaterial } from "@react-three/drei";
 export const Bubble3D = () => {
   return (
     <Canvas>
-      <color attach="background" args={["#000"]} />
       <Suspense fallback="...loading">
         <mesh>
           <Sphere args={[1, 100, 200]} scale={2.4}>
