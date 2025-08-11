@@ -1,99 +1,36 @@
 {
   "skills": [
     {
-      "category": "Front End",
+      "category": "Technical Skills",
       "skills": [
-        {
-          "name": "HTML",
-          "icon": "https://img.icons8.com/color/48/html-5.png",
-          "knowledgeLevel": 85
-        },
-        {
-          "name": "CSS",
-          "icon": "https://img.icons8.com/color/48/css3.png",
-          "knowledgeLevel": 85
-        },
-        {
-          "name": "JavaScript",
-          "icon": "https://img.icons8.com/color/48/javascript.png",
-          "knowledgeLevel": 80
-        },
-        {
-          "name": "React.js",
-          "icon": "https://img.icons8.com/color/48/react-native.png",
-          "knowledgeLevel": 75
-        },
-        {
-          "name": "Tailwind CSS",
-          "icon": "https://icon.icepanel.io/Technology/svg/Tailwind-CSS.svg",
-          "knowledgeLevel": 70
-        },
-        {
-          "name": "Framer Motion",
-          "icon": "/Images/framer-motion.png",
-          "knowledgeLevel": 65
-        }
+        { "name": "HTML/CSS", "knowlegeLevel": 95 },
+        { "name": "JavaScript", "knowlegeLevel": 90 },
+        { "name": "React", "knowlegeLevel": 85 },
+        { "name": "Node.js", "knowlegeLevel": 80 }
       ]
     },
     {
-      "category": "Back End",
+      "category": "Professional Skills",
       "skills": [
-        {
-          "name": "Node.js",
-          "icon": "https://img.icons8.com/color/48/nodejs.png",
-          "knowledgeLevel": 70
-        },
-        {
-          "name": "Express.js",
-          "icon": "/Svgs/express.svg",
-          "knowledgeLevel": 75
-        },
-        {
-          "name": "MongoDB",
-          "icon": "https://img.icons8.com/color/48/mongodb.png",
-          "knowledgeLevel": 75
-        }
-      ]
-    },
-    {
-      "category": "Tools",
-      "skills": [
-        {
-          "name": "GitHub",
-          "icon": "https://img.icons8.com/color/48/github.png",
-          "knowledgeLevel": 70
-        },
-        {
-          "name": "Figma",
-          "icon": "https://img.icons8.com/color/48/figma.png",
-          "knowledgeLevel": 65
-        }
-      ]
-    },
-    {
-      "category": "Additional Knowledge",
-      "skills": [
-        {
-          "name": "Responsive Design",
-          "icon": "Images/responsive-design.png",
-          "knowledgeLevel": 85
-        },
-        {
-          "name": "SEO",
-          "icon": "Images/seo.png",
-          "knowledgeLevel": 75
-        },
-        {
-          "name": "Web Performance",
-          "icon": "https://img.icons8.com/color/48/speed.png",
-          "knowledgeLevel": 70
-        },
-        {
-          "name": "Web Accessibility",
-          "icon": "/Images/web-accessibility.png",
-          "knowledgeLevel": 65
-        }
+        { "name": "Teamwork", "knowlegeLevel": 85 },
+        { "name": "Creativity", "knowlegeLevel": 75 },
+        { "name": "Project Management", "knowlegeLevel": 70 },
+        { "name": "Communication", "knowlegeLevel": 80 }
       ]
     }
+  ],
+  "technologies": [
+    { "name": "HTML", "icon": "/Icons/html-5.svg" },
+    { "name": "CSS", "icon": "/Icons/css-3.svg" },
+    { "name": "JavaScript", "icon": "/Icons/js.svg" },
+    { "name": "React", "icon": "/Icons/react.svg" },
+    { "name": "Tailwind CSS", "icon": "/Icons/tailwind.svg" },
+    { "name": "Framer Motion", "icon": "/Icons/framer-motion.png" },
+    { "name": "Node.js", "icon": "/Icons/node.svg" },
+    { "name": "Express.js", "icon": "/Icons/express.svg" },
+    { "name": "MongoDB", "icon": "/Icons/mongodb.svg" },
+    { "name": "GitHub", "icon": "/Icons/github.svg" },
+    { "name": "Figma", "icon": "/Icons/figma.svg" },
+    { "name": "VS Code", "icon": "/Icons/vscode.svg" }
   ]
 }

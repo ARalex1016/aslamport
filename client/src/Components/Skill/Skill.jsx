@@ -10,6 +10,7 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 
 // Components
+import { MainTitle, SubTitle } from "../String";
 import { ChevronLeftIcon, ChevronRightIcon } from "../Icons";
 import Image from "../Image";
 import { ToolTip } from "../TootTip";
@@ -153,15 +154,265 @@ const Slider = ({ slides }) => {
   );
 };
 
+const CounterNumber = ({ number, isInView, className }) => {
+  return (
+    <p className={`col-span-1 text-sm text-white/75 text-right ${className}`}>
+      {isInView ? (
+        <CountUp
+          start={0}
+          end={number}
+          duration={isInView ? 2 : 0}
+          delay={0}
+          useEasing={true}
+        />
+      ) : (
+        0
+      )}
+      %
+    </p>
+  );
+};
+
+const ProgressLinear = ({ value, isInView }) => {
+  return (
+    <div className="w-full col-span-2 h-1 bg-primary rounded-md">
+      <motion.div
+        variants={{
+          initial: {
+            width: 0,
+          },
+          final: {
+            width: `${value}%`,
+          },
+        }}
+        initial="initial"
+        animate={isInView ? "final" : "initial"}
+        transition={{
+          duration: isInView ? 2 : 0,
+          ease: "linear",
+        }}
+        className={`h-full bg-secondary shadow-xs shadow-secondary`}
+        style={{
+          borderRadius: "inherit",
+        }}
+      ></motion.div>
+    </div>
+  );
+};
+
+const ProgressCircular = ({ value }) => {
+  return (
+    <div className="w-full col-span-2 h-1 bg-primary rounded-md">
+      <motion.div
+        variants={{
+          initial: {
+            width: 0,
+          },
+          final: {
+            width: `${value}%`,
+          },
+        }}
+        initial="initial"
+        animate="final"
+        transition={{
+          duration: 1.5,
+          ease: "linear",
+        }}
+        className={`h-full bg-secondary shadow-xs shadow-secondary`}
+        style={{
+          borderRadius: "inherit",
+        }}
+      ></motion.div>
+    </div>
+  );
+};
+
+const TechnicalSkillCards = () => {
+  const technicalSkill = skillsObj.skills.find(
+    (skill) => skill.category === "Technical Skills"
+  );
+
+  const skillsRef = useRef(technicalSkill.skills.map(() => React.createRef()));
+
+  return (
+    <>
+      <div className="w-full sm:flex-1/2 flex flex-col gap-y-4">
+        <h3 className="text-xl text-white/75 font-medium">
+          {technicalSkill.category}
+        </h3>
+
+        <div className="w-full flex flex-col gap-y-4">
+          {technicalSkill.skills.length > 0 &&
+            technicalSkill.skills.map((skill, index) => {
+              const ref = skillsRef.current[index];
+
+              const isInView = useInView(ref, {
+                once: true,
+                amount: "all",
+              });
+
+              return (
+                <div
+                  key={index}
+                  ref={ref}
+                  className="w-full grid grid-cols-2 gap-y-1"
+                >
+                  <p className="col-span-1 text-sm text-white/75">
+                    {skill.name}
+                  </p>
+
+                  <CounterNumber
+                    number={skill.knowlegeLevel}
+                    isInView={isInView}
+                  />
+
+                  <ProgressLinear
+                    value={skill.knowlegeLevel}
+                    isInView={isInView}
+                  />
+                </div>
+              );
+            })}
+        </div>
+      </div>
+    </>
+  );
+};
+
+const ProfessionalSkillCard = () => {
+  const professionalSkill = skillsObj.skills.find(
+    (skill) => skill.category === "Professional Skills"
+  );
+
+  const skillsRef = useRef(
+    professionalSkill.skills.map(() => React.createRef())
+  );
+
+  return (
+    <div className="w-full sm:flex-1/2 flex flex-col gap-y-4">
+      <h3 className="text-xl text-white/75 font-medium">
+        {professionalSkill.category}
+      </h3>
+
+      <div className="w-full flex flex-col gap-y-4">
+        {professionalSkill.skills.length > 0 &&
+          professionalSkill.skills.map((skill, index) => {
+            const ref = skillsRef.current[index];
+
+            const isInView = useInView(ref, {
+              once: true,
+              amount: "all",
+            });
+
+            return (
+              <div
+                key={index}
+                ref={ref}
+                className="w-full grid grid-cols-2 gap-y-1"
+              >
+                <p className="col-span-1 text-sm text-white/75 text-nowrap">
+                  {skill.name}
+                </p>
+
+                <CounterNumber
+                  number={skill.knowlegeLevel}
+                  isInView={isInView}
+                />
+
+                <ProgressLinear
+                  value={skill.knowlegeLevel}
+                  isInView={isInView}
+                />
+              </div>
+            );
+          })}
+      </div>
+    </div>
+  );
+};
+
+const Technologies = () => {
+  const technologiesRef = useRef(
+    skillsObj.technologies.map(() => React.createRef())
+  );
+
+  return (
+    <div className="w-full flex flex-row flex-wrap gap-x-2 gap-y-4 justify-between items-center">
+      {skillsObj.technologies.length > 0 &&
+        skillsObj.technologies.map((tech, index) => {
+          const ref = technologiesRef.current[index];
+
+          const isInView = useInView(ref, {
+            once: true,
+            amount: 0.8,
+          });
+
+          return (
+            <motion.div
+              key={index}
+              ref={ref}
+              variants={{
+                initial: { opacity: 0, y: 20 },
+                final: { opacity: 1, y: 0 },
+              }}
+              initial="initial"
+              animate={isInView ? "final" : "initial"}
+              transition={{
+                duration: isInView ? 0.5 + index * 0.1 : 0,
+                ease: "easeInOut",
+              }}
+              className="w-[120px] sm:w-32 aspect-video bg-secondary/5 rounded-sm flex flex-col justify-center items-center gap-y-1 hover:bg-secondary/15"
+            >
+              <img src={tech.icon} alt="Img" srcset="" className="size-6" />
+
+              <p className="text-xs text-white/80">{tech.name}</p>
+            </motion.div>
+          );
+        })}
+    </div>
+  );
+};
+
 const Skill = () => {
+  const skillcardsRef = useRef(null);
+  const skillcardsInView = useInView(skillcardsRef, {
+    once: true,
+    amount: 0.4,
+  });
+
   return (
     <section
       id="skills"
-      className="w-full text-white bg-gray rounded-2xl flex flex-col gap-y-2 py-8"
+      className="w-full text-white bg-gray rounded-2xl flex flex-col gap-y-6 px-10 sm:px-12 md:px-16 lg:px-20 py-8"
     >
-      <h2 className="text-2xl text-white text-center">Skills</h2>
+      <MainTitle>My Skills</MainTitle>
 
-      <Slider slides={skillsObj.skills} />
+      {/* Skill Cards */}
+      <motion.div
+        ref={skillcardsRef}
+        variants={{
+          initial: { opacity: 0, y: 50 },
+          final: { opacity: 1, y: 0 },
+        }}
+        initial="initial"
+        animate={skillcardsInView ? "final" : "initial"}
+        transition={{
+          duration: skillcardsInView ? 1 : 0,
+          ease: "easeInOut",
+        }}
+        className="w-full flex flex-col sm:flex-row sm:gap-x-10 lg:gap-x-12 xl:gap-x-14 gap-y-10"
+      >
+        <TechnicalSkillCards />
+
+        <ProfessionalSkillCard />
+      </motion.div>
+
+      {/* Tools & Technologies */}
+      <div className="w-full flex flex-col gap-y-4 mt-2">
+        <SubTitle>Tools & Technologies</SubTitle>
+
+        <Technologies />
+      </div>
     </section>
   );
 };

@@ -10,7 +10,7 @@ const outerOrbitIcons = [
   ["javascript", "https://img.icons8.com/color/48/javascript.png"],
   ["react", "https://img.icons8.com/color/48/react-native.png"],
   ["tailwind", "https://icon.icepanel.io/Technology/svg/Tailwind-CSS.svg"],
-  ["framer-motion", "/Images/framer-motion.png"],
+  ["framer-motion", "/Icons/framer-motion.png"],
   ["mongodb", "https://img.icons8.com/color/48/mongodb.png"],
 ];
 

@@ -8,7 +8,7 @@ import Image from "../Image";
 import { ToolTip } from "../TootTip";
 
 // Data
-import technologiesObj from "./../../data/technologies.json";
+import skillsObj from "./../../data/skills.json";
 
 // Utils
 import { getCapitalFirstLetter } from "../../Utils/StringManager";
@@ -16,22 +16,22 @@ import { getCapitalFirstLetter } from "../../Utils/StringManager";
 const mernData = [
   {
     name: "MongoDB",
-    src: "Svgs/mongodb.svg",
+    src: "Icons/mongodb.svg",
     baseColor: "#47A248",
   },
   {
     name: "Express",
-    src: "Svgs/express.svg",
+    src: "Icons/express.svg",
     baseColor: "#ffff",
   },
   {
     name: "React Js",
-    src: "Svgs/react.svg",
+    src: "Icons/react.svg",
     baseColor: "#61DAFB",
   },
   {
     name: "Node Js",
-    src: "Svgs/node.svg",
+    src: "Icons/node.svg",
     baseColor: "#8CC84B",
   },
 ];
@@ -163,13 +163,13 @@ const AboutMe = ({ isOpenAboutMe, close, className, children }) => {
 
                 {/* Technologies */}
                 <div className="flex flex-row flex-wrap gap-2">
-                  {technologiesObj.technologies.map((technology, index) => {
+                  {skillsObj.technologies.map((technology, index) => {
                     return (
                       <div
                         key={index}
                         className="text-white/65 text-xs border-[1px] border-white/20 rounded-xl px-2 py-[1px] hover:text-primary hover:bg-secondary/80 transition-all duration-300"
                       >
-                        #{technology.name}
+                        #{technology.name.toLocaleLowerCase()}
                       </div>
                     );
                   })}
