@@ -50,7 +50,7 @@ const Footer = () => {
         />
       </ToolTip>
 
-      <SocialMedia className="gap-x-4" />
+      <SocialMedia className="gap-x-4 !flex-row" />
     </motion.section>
   );
 };

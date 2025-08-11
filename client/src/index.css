@@ -181,6 +181,16 @@ body {
 
 /* Solar System Ends */
 
+/* Image Background Starts */
+
+.imgBackground {
+  border: 1px solid rgba(var(--secondary), 0.8);
+  box-shadow: 1px 1px 12px rgba(var(--secondary), 0.4),
+    -1px -1px 12px rgba(var(--secondary), 0.4);
+}
+
+/* Image Background Ends*/
+
 @media (width >= 640px) {
   :root {
     --sidePadding: 40px;

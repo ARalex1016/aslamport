@@ -142,7 +142,7 @@ const AboutMe = ({ isOpenAboutMe, close, className, children }) => {
             <Image
               src="/Images/profile2.png"
               alt="Profile"
-              className="size-40 sm:size-52 md:size-60 lg:size-80 rounded-full object-fill"
+              className="size-40 sm:size-52 md:size-60 lg:size-80 rounded-full object-fill imgBackground"
             />
 
             {/* Outer Container */}
@@ -167,7 +167,7 @@ const AboutMe = ({ isOpenAboutMe, close, className, children }) => {
                     return (
                       <div
                         key={index}
-                        className="text-white/65 text-xs border-[1px] border-white/20 rounded-xl px-2 py-[1px] hover:text-primary hover:bg-secondary transition-all duration-300"
+                        className="text-white/65 text-xs border-[1px] border-white/20 rounded-xl px-2 py-[1px] hover:text-primary hover:bg-secondary/80 transition-all duration-300"
                       >
                         #{technology.name}
                       </div>
