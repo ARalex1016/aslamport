@@ -79,6 +79,20 @@ body {
   border-radius: inherit;
 }
 
+.glow {
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: rgba(var(--secondary));
+    border-radius: inherit;
+    filter: blur(5px);
+    z-index: 1;
+  }
+}
+
 /* Logo Start */
 .logo-hover {
   position: relative;

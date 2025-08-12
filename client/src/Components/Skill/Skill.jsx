@@ -13,6 +13,7 @@ import "swiper/css/pagination";
 import { MainTitle, SubTitle } from "../String";
 import { ChevronLeftIcon, ChevronRightIcon } from "../Icons";
 import Image from "../Image";
+import Speedometer from "../Speedometer";
 import { ToolTip } from "../TootTip";
 
 // Data
@@ -154,6 +155,14 @@ const Slider = ({ slides }) => {
   );
 };
 
+const CardTitle = ({ children }) => {
+  return (
+    <h3 className="text-xl text-white/75 font-medium text-left sm:text-center">
+      {children}
+    </h3>
+  );
+};
+
 const CounterNumber = ({ number, isInView, className }) => {
   return (
     <p className={`col-span-1 text-sm text-white/75 text-right ${className}`}>
@@ -175,7 +184,7 @@ const CounterNumber = ({ number, isInView, className }) => {
 
 const ProgressLinear = ({ value, isInView }) => {
   return (
-    <div className="w-full col-span-2 h-1 bg-primary rounded-md">
+    <div className="w-full col-span-2 h-[6px] bg-primary rounded-md">
       <motion.div
         variants={{
           initial: {
@@ -191,34 +200,7 @@ const ProgressLinear = ({ value, isInView }) => {
           duration: isInView ? 2 : 0,
           ease: "linear",
         }}
-        className={`h-full bg-secondary shadow-xs shadow-secondary`}
-        style={{
-          borderRadius: "inherit",
-        }}
-      ></motion.div>
-    </div>
-  );
-};
-
-const ProgressCircular = ({ value }) => {
-  return (
-    <div className="w-full col-span-2 h-1 bg-primary rounded-md">
-      <motion.div
-        variants={{
-          initial: {
-            width: 0,
-          },
-          final: {
-            width: `${value}%`,
-          },
-        }}
-        initial="initial"
-        animate="final"
-        transition={{
-          duration: 1.5,
-          ease: "linear",
-        }}
-        className={`h-full bg-secondary shadow-xs shadow-secondary`}
+        className={`h-full bg-secondary glow`}
         style={{
           borderRadius: "inherit",
         }}
@@ -237,11 +219,9 @@ const TechnicalSkillCards = () => {
   return (
     <>
       <div className="w-full sm:flex-1/2 flex flex-col gap-y-4">
-        <h3 className="text-xl text-white/75 font-medium">
-          {technicalSkill.category}
-        </h3>
+        <CardTitle>{technicalSkill.category}</CardTitle>
 
-        <div className="w-full flex flex-col gap-y-4">
+        <div className="w-full h-full flex flex-col gap-y-4 justify-between">
           {technicalSkill.skills.length > 0 &&
             technicalSkill.skills.map((skill, index) => {
               const ref = skillsRef.current[index];
@@ -284,45 +264,26 @@ const ProfessionalSkillCard = () => {
     (skill) => skill.category === "Professional Skills"
   );
 
-  const skillsRef = useRef(
-    professionalSkill.skills.map(() => React.createRef())
-  );
-
   return (
     <div className="w-full sm:flex-1/2 flex flex-col gap-y-4">
-      <h3 className="text-xl text-white/75 font-medium">
-        {professionalSkill.category}
-      </h3>
+      <CardTitle>{professionalSkill.category}</CardTitle>
 
-      <div className="w-full flex flex-col gap-y-4">
+      <div className="w-full grid grid-cols-2 gap-y-2">
         {professionalSkill.skills.length > 0 &&
           professionalSkill.skills.map((skill, index) => {
-            const ref = skillsRef.current[index];
-
-            const isInView = useInView(ref, {
-              once: true,
-              amount: "all",
-            });
-
             return (
-              <div
-                key={index}
-                ref={ref}
-                className="w-full grid grid-cols-2 gap-y-1"
-              >
-                <p className="col-span-1 text-sm text-white/75 text-nowrap">
-                  {skill.name}
-                </p>
-
-                <CounterNumber
-                  number={skill.knowlegeLevel}
-                  isInView={isInView}
-                />
-
-                <ProgressLinear
+              <div key={index} className="w-full flex flex-col items-center">
+                <Speedometer
                   value={skill.knowlegeLevel}
-                  isInView={isInView}
-                />
+                  glowColor="#00BCFB"
+                  size={100}
+                >
+                  <span className="text-base text-gray-300 font-bold">
+                    {skill.knowlegeLevel}%
+                  </span>
+                </Speedometer>
+
+                <p className="text-white font-medium text-xs">{skill.name}</p>
               </div>
             );
           })}
@@ -363,7 +324,7 @@ const Technologies = () => {
               }}
               className="w-[120px] sm:w-32 aspect-video bg-secondary/5 rounded-sm flex flex-col justify-center items-center gap-y-1 hover:bg-secondary/15"
             >
-              <img src={tech.icon} alt="Img" srcset="" className="size-6" />
+              <img src={tech.icon} alt="Img" className="size-6" />
 
               <p className="text-xs text-white/80">{tech.name}</p>
             </motion.div>
@@ -400,7 +361,7 @@ const Skill = () => {
           duration: skillcardsInView ? 1 : 0,
           ease: "easeInOut",
         }}
-        className="w-full flex flex-col sm:flex-row sm:gap-x-10 lg:gap-x-12 xl:gap-x-14 gap-y-10"
+        className="w-full flex flex-col sm:flex-row sm:gap-x-10 lg:gap-x-12 xl:gap-x-14 gap-y-6"
       >
         <TechnicalSkillCards />
 

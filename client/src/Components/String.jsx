@@ -21,7 +21,7 @@ export const MainTitle = ({ children, className }) => {
         duration: isInView ? 1 : 0,
         ease: "easeInOut",
       }}
-      className={`text-2xl text-white text-nowrap text-center font-bold ${className}`}
+      className={`text-xl sm:text-2xl text-white text-nowrap text-center font-bold ${className}`}
     >
       {children}
     </motion.h2>
