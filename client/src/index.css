@@ -75,6 +75,11 @@ body {
   background-color: rgb(var(--primary));
 }
 
+.scrollbar-hidden {
+  scrollbar-width: none; /* For Firefox */
+  -ms-overflow-style: none; /* For Internet Explorer and Edge */
+}
+
 .rounded-inherit {
   border-radius: inherit;
 }

@@ -1,6 +1,28 @@
 // data
 import servicesObj from "./../../data/services.json";
 
+// Components
+import { MainTitle } from "../String";
+
+const Tab = () => {
+  const titles = servicesObj.services.map((service) => service.title);
+
+  return (
+    <div className="w-full flex flex-row sm:flex-col gap-x-2 overflow-x-auto scrollbar-hidden my-2">
+      {titles.map((title, index) => {
+        return (
+          <div
+            key={index}
+            className="text-white text-sm font-medium text-nowrap bg-primary border-[1px] border-white/50 px-2 py-1 rounded-md transition-all duration-300 hover:bg-secondary/75 hover:border-secondary"
+          >
+            {title}
+          </div>
+        );
+      })}
+    </div>
+  );
+};
+
 const Cards = ({ services }) => {
   const maxAngle = 60;
   const angleDif = maxAngle / services.length;
@@ -11,17 +33,17 @@ const Cards = ({ services }) => {
         return (
           <div
             key={index}
-            className="w-[65%] aspect-square bg-secondary rounded-md border-[1px] border-primary/50 flex flex-col justify-center gap-y-4 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-1/2 p-5"
+            className="w-[65%] aspect-square bg-secondary rounded-2xl flex flex-col justify-center gap-y-2 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-1/2 shadow-md shadow-gray p-5"
             style={{
               rotate: `-${angleDif * index}deg`,
               zIndex: `${services.length - index}`,
             }}
           >
-            <p className="text-white text-lg font-medium line-clamp-2">
+            <p className="text-primary text-lg font-medium line-clamp-2">
               {service.title}
             </p>
 
-            <p className="text-white/70 text-lg line-clamp-5">
+            <p className="text-primary/80 text-base line-clamp-5">
               {service.description}
             </p>
           </div>
@@ -34,20 +56,25 @@ const Cards = ({ services }) => {
 const Services = () => {
   return (
     <>
-      <section>
+      <section id="services" className="w-full">
         {/* Service Container */}
         <div
-          className="bg-blue-800/20 relative"
+          className="relative"
           style={{
             height: `${100 + (servicesObj.services.length - 1) * 50}vh`,
           }}
         >
           {/* Display */}
-          <div className="w-full h-screen sticky top-0 pt-menuHeight">
-            <h2 className="text-2xl text-white text-center py-5">Services</h2>
+          <div className="w-full h-screen sticky top-menuHeight">
+            <MainTitle>Services</MainTitle>
 
-            {/* Cards */}
-            <Cards services={servicesObj.services} />
+            <div className="w-full flex flex-col sm:flex-row">
+              {/* Tab */}
+              <Tab />
+
+              {/* Cards */}
+              <Cards services={servicesObj.services} />
+            </div>
           </div>
         </div>
       </section>

@@ -13,7 +13,8 @@ import "swiper/css/pagination";
 import { MainTitle, SubTitle } from "../String";
 import { ChevronLeftIcon, ChevronRightIcon } from "../Icons";
 import Image from "../Image";
-import Speedometer from "../Speedometer";
+// import Speedometer from "../Speedometer";
+import CircularProgress from "../ProgressBar";
 import { ToolTip } from "../TootTip";
 
 // Data
@@ -165,7 +166,7 @@ const CardTitle = ({ children }) => {
 
 const CounterNumber = ({ number, isInView, className }) => {
   return (
-    <p className={`col-span-1 text-sm text-white/75 text-right ${className}`}>
+    <p className={`${className}`}>
       {isInView ? (
         <CountUp
           start={0}
@@ -177,7 +178,6 @@ const CounterNumber = ({ number, isInView, className }) => {
       ) : (
         0
       )}
-      %
     </p>
   );
 };
@@ -241,10 +241,14 @@ const TechnicalSkillCards = () => {
                     {skill.name}
                   </p>
 
-                  <CounterNumber
-                    number={skill.knowlegeLevel}
-                    isInView={isInView}
-                  />
+                  <div className="col-span-1 text-right flex flex-row justify-end text-sm text-white/75">
+                    <CounterNumber
+                      number={skill.knowlegeLevel}
+                      isInView={isInView}
+                      className="text-white font-medium"
+                    />
+                    <span>%</span>
+                  </div>
 
                   <ProgressLinear
                     value={skill.knowlegeLevel}
@@ -264,6 +268,10 @@ const ProfessionalSkillCard = () => {
     (skill) => skill.category === "Professional Skills"
   );
 
+  const skillsRef = useRef(
+    professionalSkill.skills.map(() => React.createRef())
+  );
+
   return (
     <div className="w-full sm:flex-1/2 flex flex-col gap-y-4">
       <CardTitle>{professionalSkill.category}</CardTitle>
@@ -271,17 +279,35 @@ const ProfessionalSkillCard = () => {
       <div className="w-full grid grid-cols-2 gap-y-2">
         {professionalSkill.skills.length > 0 &&
           professionalSkill.skills.map((skill, index) => {
+            const ref = skillsRef.current[index];
+
+            const isInView = useInView(ref, {
+              once: true,
+              amount: "all",
+            });
+
             return (
-              <div key={index} className="w-full flex flex-col items-center">
-                <Speedometer
-                  value={skill.knowlegeLevel}
-                  glowColor="#00BCFB"
-                  size={100}
+              <div
+                key={index}
+                ref={ref}
+                className="w-full flex flex-col items-center gap-y-[2px]"
+              >
+                <CircularProgress
+                  percentage={skill.knowlegeLevel}
+                  isInView={isInView}
                 >
-                  <span className="text-base text-gray-300 font-bold">
-                    {skill.knowlegeLevel}%
-                  </span>
-                </Speedometer>
+                  <div className="flex items-center justify-center text-white/80">
+                    <CounterNumber
+                      number={skill.knowlegeLevel}
+                      isInView={isInView}
+                      className="text-white text-2xl sm:text-3xl font-bold"
+                    />
+                    {/* <span className="text-white text-3xl font-bold">
+                      {skill.knowlegeLevel}
+                    </span> */}
+                    %
+                  </div>
+                </CircularProgress>
 
                 <p className="text-white font-medium text-xs">{skill.name}</p>
               </div>

@@ -40,6 +40,10 @@ const Navbar = () => {
       sectionId: "projects",
     },
     {
+      name: "services",
+      sectionId: "services",
+    },
+    {
       name: "contact",
       sectionId: "contact",
     },
