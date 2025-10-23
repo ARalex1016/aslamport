@@ -20,9 +20,10 @@
     }
   ],
   "technologies": [
-    { "name": "HTML", "icon": "/Icons/html-5.svg" },
-    { "name": "CSS", "icon": "/Icons/css-3.svg" },
+    { "name": "HTML5", "icon": "/Icons/html-5.svg" },
+    { "name": "CSS3", "icon": "/Icons/css-3.svg" },
     { "name": "JavaScript", "icon": "/Icons/js.svg" },
+    { "name": "TypeScript", "icon": "/Icons/ts.svg" },
     { "name": "React", "icon": "/Icons/react.svg" },
     { "name": "Tailwind CSS", "icon": "/Icons/tailwind.svg" },
     { "name": "Framer Motion", "icon": "/Icons/framer-motion.png" },
@@ -31,6 +32,7 @@
     { "name": "MongoDB", "icon": "/Icons/mongodb.svg" },
     { "name": "GitHub", "icon": "/Icons/github.svg" },
     { "name": "Figma", "icon": "/Icons/figma.svg" },
-    { "name": "VS Code", "icon": "/Icons/vscode.svg" }
+    { "name": "VS Code", "icon": "/Icons/vscode.svg" },
+    { "name": "Firebase", "icon": "/Icons/firebase.svg" }
   ]
 }

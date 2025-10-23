@@ -1,7 +1,34 @@
-import { motion, useMotionValue, useTransform, animate } from "framer-motion";
 import { useEffect } from "react";
+import { motion, useMotionValue, useTransform, animate } from "framer-motion";
 
-const CircularProgress = ({
+export const LinearProgress = ({ value, isInView }) => {
+  return (
+    <div className="w-full col-span-2 h-[6px] bg-primary rounded-md">
+      <motion.div
+        variants={{
+          initial: {
+            width: 0,
+          },
+          final: {
+            width: `${value}%`,
+          },
+        }}
+        initial="initial"
+        animate={isInView ? "final" : "initial"}
+        transition={{
+          duration: isInView ? 2 : 0,
+          ease: "linear",
+        }}
+        className={`h-full bg-secondary glow`}
+        style={{
+          borderRadius: "inherit",
+        }}
+      ></motion.div>
+    </div>
+  );
+};
+
+export const CircularProgress = ({
   percentage = 75,
   size = 100,
   strokeWidth = 2,
@@ -96,5 +123,3 @@ const CircularProgress = ({
     </div>
   );
 };
-
-export default CircularProgress;

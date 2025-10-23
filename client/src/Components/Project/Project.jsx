@@ -64,7 +64,7 @@ const Project = () => {
                 </div>
               </ToolTip>
 
-              <div className="w-full flex flex-col justify-center items-center rounded-inherit gap-y-2 p-5">
+              <div className="w-full flex flex-col justify-center rounded-inherit gap-y-2 p-5">
                 {/* Title */}
                 <p className="text-white/60 text-lg font-medium text-left w-full line-clamp-1 transition-all duration-300 group-hover:text-secondary">
                   {project.title}
@@ -99,19 +99,19 @@ const Project = () => {
                   })}
                 </div>
 
-                {/* Demo Button */}
-                {/* <button
+                {/* Visit Button */}
+                <button
                   title={project.liveDemoUrl}
-                  className="rounded-inherit text-white/70 text-sm font-medium bg-secondary/30 inline-block px-5 py-1 mt-1"
+                  className="rounded-inherit text-white/70 text-sm font-medium bg-secondary/30 px-5 py-1 mt-1"
                 >
                   <a
                     href={project.liveDemoUrl}
                     target="_blank"
                     title={project.liveDemoUrl}
                   >
-                    See Demo
+                    Visit
                   </a>
-                </button> */}
+                </button>
               </div>
             </motion.div>
           );

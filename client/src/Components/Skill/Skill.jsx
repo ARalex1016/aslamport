@@ -1,5 +1,5 @@
 import React, { useState, useRef, forwardRef } from "react";
-import { motion, useInView } from "framer-motion";
+import { hover, motion, useInView } from "framer-motion";
 import CountUp from "react-countup";
 
 // Swiper.js
@@ -13,8 +13,7 @@ import "swiper/css/pagination";
 import { MainTitle, SubTitle } from "../String";
 import { ChevronLeftIcon, ChevronRightIcon } from "../Icons";
 import Image from "../Image";
-// import Speedometer from "../Speedometer";
-import CircularProgress from "../ProgressBar";
+import { LinearProgress, CircularProgress } from "../ProgressBar";
 import { ToolTip } from "../TootTip";
 
 // Data
@@ -182,33 +181,6 @@ const CounterNumber = ({ number, isInView, className }) => {
   );
 };
 
-const ProgressLinear = ({ value, isInView }) => {
-  return (
-    <div className="w-full col-span-2 h-[6px] bg-primary rounded-md">
-      <motion.div
-        variants={{
-          initial: {
-            width: 0,
-          },
-          final: {
-            width: `${value}%`,
-          },
-        }}
-        initial="initial"
-        animate={isInView ? "final" : "initial"}
-        transition={{
-          duration: isInView ? 2 : 0,
-          ease: "linear",
-        }}
-        className={`h-full bg-secondary glow`}
-        style={{
-          borderRadius: "inherit",
-        }}
-      ></motion.div>
-    </div>
-  );
-};
-
 const TechnicalSkillCards = () => {
   const technicalSkill = skillsObj.skills.find(
     (skill) => skill.category === "Technical Skills"
@@ -250,7 +222,7 @@ const TechnicalSkillCards = () => {
                     <span>%</span>
                   </div>
 
-                  <ProgressLinear
+                  <LinearProgress
                     value={skill.knowlegeLevel}
                     isInView={isInView}
                   />
@@ -276,7 +248,7 @@ const ProfessionalSkillCard = () => {
     <div className="w-full sm:flex-1/2 flex flex-col gap-y-4">
       <CardTitle>{professionalSkill.category}</CardTitle>
 
-      <div className="w-full grid grid-cols-2 gap-y-2">
+      <div className="w-full grid grid-cols-2 gap-y-4">
         {professionalSkill.skills.length > 0 &&
           professionalSkill.skills.map((skill, index) => {
             const ref = skillsRef.current[index];
@@ -290,7 +262,7 @@ const ProfessionalSkillCard = () => {
               <div
                 key={index}
                 ref={ref}
-                className="w-full flex flex-col items-center gap-y-[2px]"
+                className="w-full flex flex-col items-center gap-y-1"
               >
                 <CircularProgress
                   percentage={skill.knowlegeLevel}
@@ -302,9 +274,6 @@ const ProfessionalSkillCard = () => {
                       isInView={isInView}
                       className="text-white text-2xl sm:text-3xl font-bold"
                     />
-                    {/* <span className="text-white text-3xl font-bold">
-                      {skill.knowlegeLevel}
-                    </span> */}
                     %
                   </div>
                 </CircularProgress>
@@ -324,7 +293,7 @@ const Technologies = () => {
   );
 
   return (
-    <div className="w-full flex flex-row flex-wrap gap-x-2 gap-y-4 justify-between items-center">
+    <div className="w-full grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
       {skillsObj.technologies.length > 0 &&
         skillsObj.technologies.map((tech, index) => {
           const ref = technologiesRef.current[index];
@@ -341,18 +310,26 @@ const Technologies = () => {
               variants={{
                 initial: { opacity: 0, y: 20 },
                 final: { opacity: 1, y: 0 },
+                hover: {
+                  scale: 1.07,
+                  transition: {
+                    duration: 0.1,
+                    ease: "easeInOut",
+                  },
+                },
               }}
               initial="initial"
               animate={isInView ? "final" : "initial"}
+              whileHover="hover"
               transition={{
                 duration: isInView ? 0.5 + index * 0.1 : 0,
                 ease: "easeInOut",
               }}
-              className="w-[120px] sm:w-32 aspect-video bg-secondary/5 rounded-sm flex flex-col justify-center items-center gap-y-1 hover:bg-secondary/15"
+              className="w-full h-full aspect-square border border-secondary/20 rounded-lg flex flex-col justify-center items-center gap-y-2"
             >
-              <img src={tech.icon} alt="Img" className="size-6" />
+              <img src={tech.icon} alt="Img" className="size-2/5" />
 
-              <p className="text-xs text-white/80">{tech.name}</p>
+              <p className="text-sm text-white/80 font-bold">{tech.name}</p>
             </motion.div>
           );
         })}
@@ -370,7 +347,7 @@ const Skill = () => {
   return (
     <section
       id="skills"
-      className="w-full text-white bg-gray rounded-2xl flex flex-col gap-y-6 px-10 sm:px-12 md:px-16 lg:px-20 py-8"
+      className="w-full text-white bg-gray rounded-2xl flex flex-col gap-y-6 px-8 sm:px-10 md:px-14 lg:px-16 py-8"
     >
       <MainTitle>My Skills</MainTitle>
 
